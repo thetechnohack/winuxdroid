@@ -32,7 +32,7 @@ params:
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
   ShowWordCount: false
-  ShowRssButtonInSectionTermList: true
+  ShowRssButtonInSectionTermList: false
   UseHugoToc: true
   disableSpecial1stPost: false
   disableScrollToTop: false
@@ -61,8 +61,8 @@ params:
 
   # home-info mode
   homeInfoParams:
-    Title: "RDP Sale is now live"
-    Content: buy rdp at super affordable price and the ultimate freedom.
+    Title: "Explore. Empower. Elevate."
+    Content: "Welcome to Winuxdroid, where technology meets its true potential. Our platform is designed to empower you with the latest tips, tricks, and reviews to get the most out of your Windows, Linux, and Android devices. Join our community today and unlock the power of your tech with Winuxdroid!"
 
   socialIcons:
     - name: twitter
@@ -87,11 +87,6 @@ params:
     hiddenInList: true # hide on list pages and home
     hiddenInSingle: true # hide on single page
 
-  editPost:
-    URL: "https://github.com/<path_to_repo>/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
-
   # for search
   # https://fusejs.io/api/options.html
   fuseOpts:
@@ -105,17 +100,22 @@ params:
 menu:
   main:
     - identifier: categories
-      name: categories
+      name: Categories
       url: /categories/
       weight: 10
     - identifier: tags
-      name: tags
+      name: Tags
       url: /tags/
       weight: 20
-    - identifier: example
-      name: example.org
-      url: https://example.org
+    - identifier: about
+      name: About
+      url: /about/
       weight: 30
+    - identifier: elements
+      name: Periodic
+      url: https://periodic.winuxdroid.com
+      weight: 40
+
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
 markup:
