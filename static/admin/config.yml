@@ -75,19 +75,19 @@ collections:
           - {
               label: "Relative",
               name: "relative",
-              widget: "boolean"
+              widget: "boolean",
               required: false
             }
           - {
               label: "Responsive image",
               name: "responsiveImages",
-              widget: "boolean"
+              widget: "boolean",
               required: false
             }
           - {
               label: "Hide cover",
               name: "hidden",
-              widget: "boolean"
+              widget: "boolean",
               default: false
             }
 
