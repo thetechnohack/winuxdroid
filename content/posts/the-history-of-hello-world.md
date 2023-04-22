@@ -4,7 +4,9 @@ title: The History of 'Hello, world!
 date: 2023-04-22T14:58:59.715Z
 description: A 'Hello, world!' program generally is a computer program that
   outputs or displays the message 'Hello, world!'. Such a program...
-author: Admin
+author:
+  - Sumit
+  - Nick
 tags:
   - hello-world
   - programming
