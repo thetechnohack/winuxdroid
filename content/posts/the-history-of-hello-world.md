@@ -7,6 +7,7 @@ description: A 'Hello, world!' program generally is a computer program that
 author: Admin
 tags:
   - hello-world
+  - programming
 cover:
   hidden: false
   image: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8riHOS7rcLPVfrvlyUCWu_a2HQR3sMaOQGg&usqp=CAU
