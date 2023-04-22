@@ -106,18 +106,22 @@ menu:
       name: Categories
       url: /categories/
       weight: 10
+    - identifier: posts
+      name: posts
+      url: /posts/
+      weight: 20
     - identifier: tags
       name: Tags
       url: /tags/
-      weight: 20
+      weight: 30
     - identifier: about
       name: About
       url: /about/
-      weight: 30
+      weight: 40
     - identifier: elements
       name: Periodic
       url: https://periodic.winuxdroid.com
-      weight: 40
+      weight: 50
 
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
