@@ -5,15 +5,7 @@ weight: 1
 tags: ["rdp"]
 categories: ["rdp"]
 author: "Admin"
-showToc: true
-TocOpen: false
 description: "Unleash the power of remote collaboration with our high-performance RDP services"
-canonicalURL: "https://canonical.url/to/page"
-searchHidden: true
-ShowReadingTime: false
-ShowBreadCrumbs: true
-ShowPostNavLinks: false
-UseHugoToc: true
 cover:
     image: "<image path/url>"
     alt: "<alt text>"

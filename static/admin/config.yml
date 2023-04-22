@@ -13,6 +13,13 @@ collections:
     create: true
     fields:
       - {
+          label: "Draft",
+          name: "draft",
+          widget: "boolean",
+          default: true
+        }
+
+      - {
           label: "Title",
           name: "title",
           widget: "string"
@@ -90,19 +97,13 @@ collections:
               widget: "boolean",
               default: false
             }
-
+      
       - {
           label: "Body",
           name: "body",
           widget: "markdown"
         }
 
-      - {
-          label: "Draft",
-          name: "draft",
-          widget: "boolean",
-          default: true
-        }
 
   - name: "pages"
     label: "Pages"
@@ -110,30 +111,6 @@ collections:
       - file: "content/about.md"
         label: "About"
         name: "about"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Description", name: "description", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
-
-      - file: "content/categories.md"
-        label: "Categories"
-        name: "categories"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Description", name: "description", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
-
-      - file: "content/tags.md"
-        label: "Tags"
-        name: "tags"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Description", name: "description", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
-
-      - file: "content/links.md"
-        label: "Links"
-        name: "links"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Description", name: "description", widget: "string" }
