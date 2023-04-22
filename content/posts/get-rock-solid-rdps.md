@@ -3,7 +3,9 @@ title: Get rock-solid RDPs
 date: 2023-04-22T08:52:47.563Z
 description: Unleash the power of remote collaboration with our high-performance
   RDP services
-author: Admin
+author:
+  - Sumit
+  - Nick
 categories:
   - rdp
 cover:
