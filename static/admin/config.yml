@@ -16,7 +16,8 @@ collections:
           label: "Draft",
           name: "draft",
           widget: "boolean",
-          default: false
+          default: true,
+          required: false
         }
 
       - {
