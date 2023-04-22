@@ -1,17 +1,21 @@
 ---
-title: "Get rock-solid RDPs"
+title: Get rock-solid RDPs
 date: 2020-09-15T11:30:03+00:00
-weight: 1
-tags: ["rdp"]
-categories: ["rdp"]
-author: "Admin"
-description: "Unleash the power of remote collaboration with our high-performance RDP services"
+description: Unleash the power of remote collaboration with our high-performance
+  RDP services
+author: Admin
+categories:
+  - rdp
 cover:
-    image: "<image path/url>"
-    alt: "<alt text>"
-    caption: "<text>"
-    relative: false
-    hidden: true
+  image: /images/uploads/images-2-.jpeg
+  alt: "robust rdp hosting "
+  caption: ""
+  relative: false
+  hidden: false
+weight: 1
+tags:
+  - rdp
+  - hosting
 ---
 
 # What are RDPs?
