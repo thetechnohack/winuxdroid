@@ -5,7 +5,9 @@ date: 2023-04-22T15:03:24.810Z
 description: BruteSpray is an open source python tool which provides a
   combination of both port scanning and automated brute force attacks against
   scanned services...
-author: Admin
+author:
+  - Sumit
+  - Nick
 tags:
   - bruteforce
   - python
