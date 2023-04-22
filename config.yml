@@ -107,7 +107,7 @@ menu:
       url: /categories/
       weight: 10
     - identifier: posts
-      name: posts
+      name: Posts
       url: /posts/
       weight: 20
     - identifier: tags
