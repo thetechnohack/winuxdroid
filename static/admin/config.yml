@@ -5,6 +5,8 @@ backend:
 publish_mode: editorial_workflow
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
+site_url: https://winuxdroid.com
+logo_url: https://screenshot-proxy.netlify.app/f_avif,fit_cover,s_64x64/https://d33wubrfki0l68.cloudfront.net/6440f692228441673fdb0d0a/67a4d22ce7e1a54f57e9/images%20(1).jpeg
 
 collections:
   - name: "posts"
