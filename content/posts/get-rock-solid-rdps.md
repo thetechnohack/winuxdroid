@@ -19,8 +19,8 @@ tags:
   - rdp
   - hosting
 ---
-
 # What are RDPs?
+
 Remote Desktop Protocol (RDP) allows users to access and control computers remotely, offering numerous benefits:
 
 **🌐 Flexibility**: Work from anywhere with an internet connection.
@@ -35,51 +35,55 @@ Ethical hackers use RDP to assess and strengthen an organization's security, mak
 
 You can use RDP for its convenience, cost-effectiveness, and security benefits. Stay connected, and enjoy a seamless work experience! 🚀🔒💻
 
-
-
 # RDP Price list
 
 ## 🌎 US Region RDP's
 
 ### Bronze 🐛
-- 2 Cores
-- 4GB Ram
-- 60GB SSD
-- **~~$35~~ $25/month**
+
+* 2 Cores
+* 4GB Ram
+* 60GB SSD
+* **~~$35~~ $25/month**
 
 ### Silver 🔥
-- 2 Cores
-- 8GB Ram
-- 80GB SSD
-- **~~$55~~ $45/month**
+
+* 2 Cores
+* 8GB Ram
+* 80GB SSD
+* **~~$55~~ $35/month**
 
 ### Gold 👑
-- 4 Cores
-- 16GB Ram
-- 100GB SSD
-- **~~$80~~ $70/month**
+
+* 4 Cores
+* 16GB Ram
+* 100GB SSD
+* **~~$80~~ $50/month**
 
 ### Platinum ⚡
-- 6 Cores
-- 16GB Ram
-- 100GB SSD
-- **~~$120~~ $110/month**
+
+* 6 Cores
+* 16GB Ram
+* 100GB SSD
+* **~~$120~~ $65/month**
 
 ### Diamond 💎
-- 6 Cores
-- 32GB Ram
-- 150GB SSD
-- **~~$160~~ $150/month**
+
+* 6 Cores
+* 32GB Ram
+* 150GB SSD
+* **~~$160~~ $75/month**
 
 ### Emerald 🚀
-- 8 Cores
-- 32GB Ram
-- 150GB SSD
-- **~~$200~~ $180/month**
+
+* 8 Cores
+* 32GB Ram
+* 150GB SSD
+* **~~$200~~ $90/month**
 
 ALL Comes with these features:
 
-- 10Gbps speed
+* 10Gbps speed
 
 Unlimited Bandwidth
 
