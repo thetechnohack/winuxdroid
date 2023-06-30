@@ -44,42 +44,42 @@ You can use RDP for its convenience, cost-effectiveness, and security benefits. 
 * 2 Cores
 * 4GB Ram
 * 60GB SSD
-* **~~$35~~ $25/month**
+* **~~$35~~ $15/month**
 
 ### Silver 🔥
 
 * 2 Cores
 * 8GB Ram
 * 80GB SSD
-* **~~$55~~ $35/month**
+* **~~$55~~ $25/month**
 
 ### Gold 👑
 
 * 4 Cores
 * 16GB Ram
 * 100GB SSD
-* **~~$80~~ $50/month**
+* **~~$80~~ $35/month**
 
 ### Platinum ⚡
 
 * 6 Cores
 * 16GB Ram
 * 100GB SSD
-* **~~$120~~ $65/month**
+* **~~$120~~ $45/month**
 
 ### Diamond 💎
 
 * 6 Cores
 * 32GB Ram
 * 150GB SSD
-* **~~$160~~ $75/month**
+* **~~$160~~ $55/month**
 
 ### Emerald 🚀
 
 * 8 Cores
 * 32GB Ram
 * 150GB SSD
-* **~~$200~~ $90/month**
+* **~~$200~~ $65/month**
 
 ALL Comes with these features:
 
@@ -88,4 +88,4 @@ ALL Comes with these features:
 Unlimited Bandwidth
 
 Bulletproof RDP and Hosting also available
-Inbox for more details - [@maxmonu](https://telegram.dog/maxmonu)
+Inbox for more details - [@nickunicc](https://telegram.dog/nickunicc)
