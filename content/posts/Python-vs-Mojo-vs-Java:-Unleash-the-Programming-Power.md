@@ -1,6 +1,6 @@
 ---
 draft: false
-title: Python vs. Mojo vs. Java: Unleash the Programming Power!
+title: "Python vs. Mojo vs. Java: Unleash the Programming Power!"
 date: 2023-06-27T15:24:09.949Z
 description: Dive into the epic showdown between Python, Mojo, and Java, three programming giants. Discover their unique strengths, cool features, and where they dominate. Get ready to choose your programming champion!
 author:
@@ -10,7 +10,7 @@ tags:
   - Python
   - Mojo
   - Java
-  - programming languages
+  - Programming
 cover:
   hidden: true
   image: https://www.example.com/cover_image.jpg
