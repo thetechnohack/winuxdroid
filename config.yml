@@ -71,15 +71,15 @@ params:
     Title: "Explore. Empower. Elevate."
     Content: "Welcome to Winuxdroid, where technology meets its true potential. Our platform is designed to empower you with the latest tips, tricks, and reviews to get the most out of your Windows, Linux, and Android devices. Join our community today and unlock the power of your tech with Winuxdroid!"
 
-  socialIcons:
-    - name: twitter
-      url: "https://twitter.com/"
-    - name: stackoverflow
-      url: "https://stackoverflow.com"
-    - name: github
-      url: "https://github.com/"
-    - name: telegram
-      url: "https://telegram.dog/"
+      #socialIcons:
+      #- name: twitter
+      #url: "https://twitter.com/"
+      #- name: stackoverflow
+      #url: "https://stackoverflow.com"
+      #- name: github
+      #url: "https://github.com/"
+      #- name: telegram
+      #url: "https://telegram.dog/"
 
   analytics:
     google:
@@ -109,34 +109,26 @@ params:
 
 menu:
   main:
-    - identifier: search
-      name: "🔍"
-      url: /search/
+    - identifier: posts
+      name: Posts
+      url: /posts/
       weight: 1
     - identifier: categories
       name: Categories
       url: /categories/
-      weight: 10
-    - identifier: posts
-      name: Posts
-      url: /posts/
-      weight: 20
+      weight: 2
     - identifier: tags
       name: Tags
       url: /tags/
-      weight: 30
-    - identifier: about
-      name: About
-      url: /about/
-      weight: 40
-    - identifier: elements
-      name: Periodic
-      url: https://periodic.winuxdroid.com
-      weight: 50
-    - identifier: sitemap
-      name: Sitemap
-      url: /sitemap.xml
-      weight: 60
+      weight: 3
+    - identifier: network-hacking
+      name: Network Hacking
+      url: /networking-for-hackers/
+      weight: 4
+    - identifier: search
+      name: "Find 🔍"
+      url: /search/
+      weight: 10
 
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true

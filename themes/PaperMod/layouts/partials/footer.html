@@ -3,7 +3,8 @@
     {{- if site.Copyright }}
     <span>{{ site.Copyright | markdownify }}</span>
     {{- else }}
-    <span>Copyright &copy; {{ now.Year }} <a href="{{ "" | absLangURL }}">{{ site.Title }}</a> All rights reserved.</span>
+    <span>Copyright &copy; {{ now.Year }} <a href="{{ "" | absLangURL }}">{{ site.Title }}</a> All rights reserved</span>
+    <span><a href="/sitemap.xml">Sitemap</a> • <a href="/about">About</a> • <a href="/privacy-policy">Privacy Policy</a></span>
     {{- end }}
 </footer>
 {{- end }}
