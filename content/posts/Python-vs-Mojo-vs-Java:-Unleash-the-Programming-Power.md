@@ -12,7 +12,7 @@ tags:
   - Java
   - Programming
 cover:
-  hidden: true
+  hidden: false
   image: https://asset.cloudinary.com/dnwwolyxt/fbbb27242e32873429f206f6b506e0ef
   alt: Python vs. Mojo vs. Java
 ---
