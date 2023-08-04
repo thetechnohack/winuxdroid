@@ -3,7 +3,7 @@ const { MongoClient } = require("mongodb");
 const mongoOptions = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  poolSize: 10, // Set the maximum number of connections in the pool
+  poolSize: 2, // Set the maximum number of connections in the pool
 };
 
 exports.handler = async function(event, context) {
