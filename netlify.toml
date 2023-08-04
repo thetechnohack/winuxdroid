@@ -5,3 +5,8 @@ command = "hugo --gc --minify"
 [context.production.environment]
 HUGO_VERSION = "0.90.0"
 HUGO_ENV = "production"
+
+[[redirects]]
+from = "/f/:shortlink_id"
+to = "/.netlify/functions/redirect"
+status = 200
