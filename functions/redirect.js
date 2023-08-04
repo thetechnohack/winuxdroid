@@ -13,8 +13,6 @@ exports.handler = async function(event, context) {
 
   try {
     const mongoOptions = {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
       poolSize: 10,
     };
     const uri = process.env.MONGODB_CONNECTION_STRING;
