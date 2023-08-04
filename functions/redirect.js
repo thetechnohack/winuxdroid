@@ -1,11 +1,5 @@
 const { MongoClient } = require("mongodb");
 
-const mongoOptions = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  poolSize: 2, // Set the maximum number of connections in the pool
-};
-
 exports.handler = async function(event, context) {
   const { path } = event;
   const shortlinkId = path.split("/")[2];
@@ -19,7 +13,7 @@ exports.handler = async function(event, context) {
 
   try {
     const uri = process.env.MONGODB_CONNECTION_STRING;
-    const client = new MongoClient(uri, mongoOptions);
+    const client = new MongoClient(uri);
 
     await client.connect();
 
