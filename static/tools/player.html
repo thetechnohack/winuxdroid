@@ -64,7 +64,7 @@
             const videoPlayer = document.getElementById('videoPlayer');
 
             const urlParams = new URLSearchParams(window.location.search);
-            const content = decodeURIComponent(urlParams.get("content")) || "big buck bunny";
+            const content = decodeURIComponent(urlParams.get("content") || "big buck bunny");
 
             // Manipulate title and content
             const title = `Streaming ${content}`;
