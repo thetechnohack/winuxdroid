@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>%s</title>
+    <script src="https://cdn.tailwindcss.com"></script> <!--hehe...ik..but..it..just..works-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-14MFS6P5RS"></script>
+    <script>
+        // Google Analytics tracking code
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-14MFS6P5RS');
+    </script>
+</head>
+
+<body class="bg-gradient-to-r from-zinc-900 via-zinc-900 to-zinc-900">
+    <div class="mx-auto px-2 max-w-xl flex flex-col space-y-3">
+        <div class="p-5 flex justify-center items-center space-x-2">
+            <svg role="img" fill="#26A5E4" width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Telegram</title><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            <div class="text-xl font-bold text-white">FileToLinkReady Bot</div>
+        </div>
+
+        <div class=" p-5 bg-zinc-950 text-white rounded-2xl ">
+            <a id="downloadLink" href="%s"><button type="button" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">Download File</button></a>
+        </div>
+
+        <div class="p-5 bg-zinc-950 text-white rounded-2xl ">
+            <div class="font-extrabold font-serif"><span id="content"></span></div>
+            <hr><br>
+
+            <div class="space-y-2 bg-zinc-900 p-4 rounded-2xl">
+                <div class="flex text-sm font-mono">File Name   : &nbsp;<span id="fileName"></span></div>
+                <div class="flex text-sm font-mono">File Size   : &nbsp;<span id="fileSize"></span></div>
+            </div>
+
+        </div>
+
+        <div class="p-5 bg-zinc-950 text-white rounded-2xl ">
+            <div class="font-extrabold font-serif">File URL</div>
+            <hr><br>
+            <div class="space-y-2 bg-zinc-900 p-4 rounded-2xl">
+                <div class="flex font-semibold font-mono">Direct Link:&nbsp;<span id="displayedUrl">%s</span></div>
+                <button type="button" id="copyButton" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">Copy URL</button>
+            </div>
+        </div>
+
+        <div class="flex justify-evenly p-5 bg-zinc-950 text-white rounded-2xl ">
+            <button type="button" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800"><a href="tg://resolve?domain=filetolinkreadybot">Bot</a></button>
+            <button type="button" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800"><a href="tg://resolve?domain=computerbuddy">ComputerBuddy</a></button>
+            <button type="button" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800"><a href="tg://resolve?domain=thetechnohack">TheTechnoHack</a></button>
+        </div>
+    </div>
+
+    <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get the anchor element by its id
+            const downloadLink = document.getElementById('downloadLink');
+
+            // Get the URL parameter "d" and decode it
+            const urlParams = new URLSearchParams(window.location.search);
+            const content = decodeURIComponent(urlParams.get("content")|| "big buck bunny");
+
+            // Manipulate title and content
+            const title = `Download ${content}`;
+
+            // Set the values in the HTML elements
+            document.title = title;
+            document.getElementById('content').textContent = content;
+
+            const fileSize = urlParams.get("fileSize") || "Not Available";
+
+            // Set the values for file name and file size
+            document.getElementById('fileName').textContent = content;
+            document.getElementById('fileSize').textContent = fileSize;
+            const downloadUrl = urlParams.get("d") || "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+
+            if (downloadUrl) {
+                downloadLink.href = decodeURIComponent(downloadUrl);
+                // Set the displayed URL
+                document.getElementById('displayedUrl').textContent = decodeURIComponent(downloadUrl);
+            }
+            
+            // Copy URL button functionality
+            const copyButton = document.getElementById('copyButton');
+            copyButton.addEventListener('click', () => {
+                const tempInput = document.createElement('textarea');
+                tempInput.value = decodeURIComponent(downloadUrl);
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+            });
+            const cleanURL = `/tools/downloader.html/`;
+            window.history.replaceState({}, '', cleanURL);
+        });
+
+    </script>
+</body>
+</html>
+
