@@ -22,82 +22,98 @@
             <div class="text-xl font-bold text-white">FileToLinkReady Bot</div>
         </div>
 
-        <div class=" p-5 bg-zinc-950 text-white rounded-2xl ">
+        <div class="p-5 bg-zinc-950 text-white rounded-2xl">
             <a id="downloadLink" href="%s"><button type="button" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">Download File</button></a>
         </div>
 
-        <div class="p-5 bg-zinc-950 text-white rounded-2xl ">
+        <div class="p-5 bg-zinc-950 text-white rounded-2xl">
             <div class="font-extrabold font-serif"><span id="content"></span></div>
             <hr><br>
 
             <div class="space-y-2 bg-zinc-900 p-4 rounded-2xl">
                 <div class="flex text-sm font-mono">File Name   : &nbsp;<span id="fileName"></span></div>
                 <div class="flex text-sm font-mono">File Size   : &nbsp;<span id="fileSize"></span></div>
+                <div class="flex text-sm font-mono">Created On : &nbsp;<span id="createdon"></span></div>
             </div>
 
         </div>
 
-        <div class="p-5 bg-zinc-950 text-white rounded-2xl ">
+        <div class="p-5 bg-zinc-950 text-white rounded-2xl">
             <div class="font-extrabold font-serif">File URL</div>
             <hr><br>
             <div class="space-y-2 bg-zinc-900 p-4 rounded-2xl">
                 <div class="flex font-semibold font-mono">Direct Link:&nbsp;<span id="displayedUrl">%s</span></div>
-                <button type="button" id="copyButton" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">Copy URL</button>
+                <button type="button" id="copyButton" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover-bg-gray-600 dark:focus:ring-gray-800">Copy URL</button>
             </div>
         </div>
 
-        <div class="flex justify-evenly p-5 bg-zinc-950 text-white rounded-2xl ">
-            <button type="button" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800"><a href="tg://resolve?domain=filetolinkreadybot">Bot</a></button>
-            <button type="button" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800"><a href="tg://resolve?domain=computerbuddy">ComputerBuddy</a></button>
-            <button type="button" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800"><a href="tg://resolve?domain=thetechnohack">TheTechnoHack</a></button>
+        <div class="flex justify-evenly p-5 bg-zinc-950 text-white rounded-2xl">
+            <button type="button" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover-bg-gray-600 dark:focus:ring-gray-800"><a href="tg://resolve?domain=filetolinkreadybot">Bot</a></button>
+            <button type="button" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover-bg-gray-600 dark:focus:ring-gray-800"><a href="tg://resolve?domain=computerbuddy">ComputerBuddy</a></button>
+            <button type="button" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover-bg-gray-600 dark:focus:ring-gray-800"><a href="tg://resolve?domain=thetechnohack">TheTechnoHack</a></button>
         </div>
     </div>
 
     <script>
-        // Wait for the DOM to be fully loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            // Get the anchor element by its id
-            const downloadLink = document.getElementById('downloadLink');
+document.addEventListener('DOMContentLoaded', () => {
+    // Get the anchor element by its id
+    const downloadLink = document.getElementById('downloadLink');
+    const contentElement = document.getElementById('content');
+    const fileNameElement = document.getElementById('fileName');
+    const fileSizeElement = document.getElementById('fileSize');
+    const createdOnElement = document.getElementById('createdon');
+    const displayedUrlElement = document.getElementById('displayedUrl');
 
-            // Get the URL parameter "d" and decode it
-            const urlParams = new URLSearchParams(window.location.search);
-            const content = decodeURIComponent(urlParams.get("content")|| "big buck bunny");
+    // Get the 'id' parameter from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get("id") || 'DT6NTLyRo-rfLo';
 
-            // Manipulate title and content
-            const title = `Download ${content}`;
+    // Fetch data from the API
+    fetch(`https://f2lk.me/api/f/${id}`)
+        .then(response => response.json())
+        .then(data => {
+            // Update the HTML elements with the API response data
+            const content = decodeURIComponent(data.file_name);
+            document.title = `Download ${content}`;
+            contentElement.textContent = content;
+            fileNameElement.textContent = content;
+            fileSizeElement.textContent = formatFileSize(data.file_size);
+            createdOnElement.textContent = data.created_on;
 
-            // Set the values in the HTML elements
-            document.title = title;
-            document.getElementById('content').textContent = content;
-
-            const fileSize = urlParams.get("fileSize") || "Not Available";
-
-            // Set the values for file name and file size
-            document.getElementById('fileName').textContent = content;
-            document.getElementById('fileSize').textContent = fileSize;
-            const downloadUrl = urlParams.get("d") || "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
-
-            if (downloadUrl) {
-                downloadLink.href = decodeURIComponent(downloadUrl);
-                // Set the displayed URL
-                document.getElementById('displayedUrl').textContent = decodeURIComponent(downloadUrl);
-            }
-            
-            // Copy URL button functionality
-            const copyButton = document.getElementById('copyButton');
-            copyButton.addEventListener('click', () => {
-                const tempInput = document.createElement('textarea');
-                tempInput.value = decodeURIComponent(downloadUrl);
-                document.body.appendChild(tempInput);
-                tempInput.select();
-                document.execCommand('copy');
-                document.body.removeChild(tempInput);
-            });
-            const cleanURL = `/tools/downloader/`;
-            window.history.replaceState({}, '', cleanURL);
+            // Set the download link
+            downloadLink.href = `https://f2lk.me/${id}`;
+            displayedUrlElement.textContent = `https://f2lk.me/${id}`;
+        })
+        .catch(error => {
+            console.error('Error fetching data from API:', error);
         });
 
-    </script>
+    // Function to format file size
+    function formatFileSize(size) {
+        const units = ['B', 'KB', 'MB', 'GB', 'TB'];
+        let i = 0;
+        while (size >= 1024 && i < units.length - 1) {
+            size /= 1024;
+            i++;
+        }
+        return size.toFixed(2) + ' ' + units[i];
+    }
+
+    // Copy URL button functionality
+    const copyButton = document.getElementById('copyButton');
+    copyButton.addEventListener('click', () => {
+        const tempInput = document.createElement('textarea');
+        tempInput.value = displayedUrlElement.textContent;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+    });
+
+    const cleanURL = `/tools/downloader.html`;
+    window.history.replaceState({}, '', cleanURL);
+});
+
+</script>
 </body>
 </html>
-
