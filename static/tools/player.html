@@ -28,8 +28,8 @@
             <div class="font-extrabold font-serif text-purple-600"><span id="content"></span></div>
             <hr><br>
             <div class="space-y-2 bg-zinc-900 p-4 rounded-2xl">
-                <div class="flex text-sm font-mono">File Name   : &nbsp;<span id="fileName"></span></div>
-                <div class="flex text-sm font-mono">File Size   : &nbsp;<span id="fileSize"></span></div>
+                <div class="flex text-sm font-mono">File Name : &nbsp;<span id="fileName"></span></div>
+                <div class="flex text-sm font-mono">File Size : &nbsp;<span id="fileSize"></span></div>
                 <div class="flex text-sm font-mono">Created On : &nbsp;<span id="createdon"></span></div>
             </div>
         </div>
@@ -66,10 +66,10 @@
 
             // Get the 'id' parameter from the URL
             const urlParams = new URLSearchParams(window.location.search);
-            const id = urlParams.get("id");
+            const id = urlParams.get("id") || 'DT6NTLyRo-rfLo';
 
             // Fetch data from the API
-            fetch(`https://api.f2lk.me/f/${id}`)
+            fetch(`https://f2lk.me/api/f/${id}`)
                 .then(response => response.json())
                 .then(data => {
                     // Update the HTML elements with the API response data
@@ -80,7 +80,7 @@
                     document.getElementById('createdon').textContent = data.created_on;
 
                     // Construct the video link based on 'id'
-                    const videoLink = `https://f2lk.me/${id}`;
+                    const videoLink = `https://f2lk.me/${id}` ;
                     videoPlayer.src = videoLink;
                 })
                 .catch(error => {
