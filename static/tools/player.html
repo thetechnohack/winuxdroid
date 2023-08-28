@@ -20,7 +20,7 @@
 <body class="bg-gradient-to-r from-zinc-900 via-zinc-900 to-zinc-900">
     <div class="mx-auto px-2 max-w-xl flex flex-col space-y-3">
         <div class="p-5 flex justify-center items-center space-x-3">
-            <svg role="img" fill="#26A5E4" width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Telegram</title><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            <svg role="img" fill="#26A5E4" width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Telegram</title><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.820 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
             <div class="text-xl font-bold text-white">FileToLinkReady Bot</div>
         </div>
         <video class="rounded-2xl player overflow-hidden" controls src="" id="videoPlayer"></video>
@@ -30,6 +30,7 @@
             <div class="space-y-2 bg-zinc-900 p-4 rounded-2xl">
                 <div class="flex text-sm font-mono">File Name   : &nbsp;<span id="fileName"></span></div>
                 <div class="flex text-sm font-mono">File Size   : &nbsp;<span id="fileSize"></span></div>
+                <div class="flex text-sm font-mono">Created On : &nbsp;<span id="createdon"></span></div>
             </div>
         </div>
         <div class="flex justify-evenly p-5 bg-zinc-950 text-white rounded-2xl">
@@ -63,32 +64,42 @@
             
             const videoPlayer = document.getElementById('videoPlayer');
 
+            // Get the 'id' parameter from the URL
             const urlParams = new URLSearchParams(window.location.search);
-            const content = decodeURIComponent(urlParams.get("content") || "big buck bunny");
+            const id = urlParams.get("id");
 
-            // Manipulate title and content
-            const title = `Streaming ${content}`;
+            // Fetch data from the API
+            fetch(`https://f2lk.me/api/f/${id}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Update the HTML elements with the API response data
+                    document.title = `Streaming ${decodeURIComponent(data.file_name)}`;
+                    document.getElementById('content').textContent = decodeURIComponent(data.file_name);
+                    document.getElementById('fileName').textContent = decodeURIComponent(data.file_name);
+                    document.getElementById('fileSize').textContent = formatFileSize(data.file_size);
+                    document.getElementById('createdon').textContent = data.created_on;
 
-            // Set the values in the HTML elements
-            document.title = title;
-            document.getElementById('content').textContent = content;
+                    // Construct the video link based on 'id'
+                    const videoLink = `https://f2lk.me/${id}`;
+                    videoPlayer.src = videoLink;
+                })
+                .catch(error => {
+                    console.error('Error fetching data from API:', error);
+                });
 
-            const fileSize = urlParams.get("fileSize") || "Not Available";
-
-            // Set the values for file name and file size
-            document.getElementById('fileName').textContent = content;
-            document.getElementById('fileSize').textContent = fileSize;
-
-            const videoLink = urlParams.get("v") || "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
-
-            if (videoLink) {
-                videoPlayer.src = decodeURIComponent(videoLink);
+            // Function to format file size
+            function formatFileSize(size) {
+                const units = ['B', 'KB', 'MB', 'GB', 'TB'];
+                let i = 0;
+                while (size >= 1024 && i < units.length - 1) {
+                    size /= 1024;
+                    i++;
+                }
+                return size.toFixed(2) + ' ' + units[i];
             }
 
-            const cleanURL = `/tools/player/`;
+            const cleanURL = `/tools/player.html`;
             window.history.replaceState({}, '', cleanURL);
-            
-            
         });
     </script>
 </body>
