@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Request Email Address For Github Student Pack">
+  <meta name="keywords" content="Request Email Address For Github Student Pack">
+  <meta name="author" content="WinuxDroid">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request Email</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="login-box">
+    <h2>Request Email Address For Github Student Pack</h2>
+    <form id="emailForm" action="https://docs.google.com/forms/d/e/1FAIpQLSe8Z6j9hTn_xtk2wmilfG_RwWoYU46WbVUuQfBER1waVMdkBA/formResponse" method="post">
+      <div class="user-box">
+        <input type="text" name="entry.924879889" required>
+        <label>Full Name</label>
+      </div>
+      <div class="user-box">
+        <input type="text" name="entry.190657837" required>
+        <label>Email Address</label>
+      </div>
+      <div class="user-box">
+        <textarea name="entry.457298435" rows="4" required></textarea>
+        <label>How do you plan to use GitHub?</label>
+      </div>
+      <div id="error-message" class="error-message"></div>
+      <a href="#" onclick="submitForm()">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Submit
+      </a>
+    </form>
+  </div>
+
+  <script>
+    function submitForm() {
+      const form = document.getElementById("emailForm");
+      const fullName = form.elements["entry.924879889"].value;
+      const emailAddress = form.elements["entry.190657837"].value;
+      const githubUsage = form.elements["entry.457298435"].value;
+      const errorMessage = document.getElementById("error-message");
+  
+      if (fullName.trim() === "" || emailAddress.trim() === "" || githubUsage.trim() === "") {
+        errorMessage.textContent = "Please fill in all required fields.";
+        errorMessage.style.display = "block";
+        return;
+      }
+      errorMessage.textContent = "";
+      errorMessage.style.display = "none";
+  
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: form.method,
+        body: formData,
+      });
+  
+      window.location.href = "https://winuxdroid.com";
+    }
+  </script>
+  
+  
+</body>
+</html>
