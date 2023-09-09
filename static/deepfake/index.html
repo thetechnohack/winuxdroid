@@ -4,6 +4,26 @@
   <title>Deepfake Detection</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <style>
+    /* CSS for the animation and image preview (if needed) */
+    /* ... (your existing CSS styles) ... */
+
+    /* CSS for the footer */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      position: fixed; /* Change from absolute to fixed */
+      bottom: 0;
+      width: 100%;
+      z-index: 1; /* Add a z-index to ensure it stays on top */
+    }
+
+    /* CSS for the main content area */
+    main {
+      padding-bottom: 40px; /* Add padding to accommodate the fixed footer */
+    }
+
     /* CSS for the animation */
     .loader {
       border: 8px solid #f3f3f3;
@@ -47,6 +67,9 @@
     </div>
     <div id="resultContainer" style="display: none;"></div>
   </main>
+  <footer>
+    <p>&copy; 2023 winuxdroid All rights reserved</p>
+  </footer>
   <script src="script.js"></script>
 </body>
 </html>
