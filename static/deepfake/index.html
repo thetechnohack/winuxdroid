@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Deepfake Detection</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    /* CSS for the animation */
+    .loader {
+      border: 8px solid #f3f3f3;
+      border-top: 8px solid #3498db;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 2s linear infinite;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+
+    /* Set max width and max height for the image preview */
+    #uploadedImage {
+      max-width: 100%; /* Adjust this value as needed */
+      max-height: 400px; /* Adjust this value as needed */
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Deepfake Detection</h1>
+  </header>
+  <main>
+    <form id="uploadForm">
+      <label for="imageInput">Select an image:</label>
+      <input type="file" id="imageInput" accept="image/*">
+      <button type="submit" id="detectButton">Detect Deepfake</button>
+      <div id="alertMessage" style="display: none; color: red;"></div>
+    </form>
+    <div id="imageContainer" style="display: none;">
+      <img id="uploadedImage" src="#" alt="Uploaded Image">
+      <div id="animationOverlay" style="display: none;">
+        <div class="loader"></div> <!-- Loader animation -->
+      </div>
+    </div>
+    <div id="resultContainer" style="display: none;"></div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
