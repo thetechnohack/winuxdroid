@@ -66,17 +66,17 @@
                 <div class="p-4 bg-zinc-950 text-white rounded-2xl">
                     <div class="relative flex overflow-x-hidden">
                         <div class="py-2 animate-marquee whitespace-nowrap">
-                            <span id="fileNameBig" class="font-extrabold font-mono text-[#02f022] animate-marquee">Big Buck Bunny</span>
+                            <span class="fileName font-extrabold font-mono text-[#02f022] animate-marquee">Big Buck Bunny</span>
                         </div>
                         <div class="absolute top-0 py-2 animate-marquee2 whitespace-nowrap">
-                            <span id="fileNameBig" class="font-extrabold font-mono text-[#02f022] animate-marquee2"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>Big Buck Bunny</span>
+                            <span class="fileName font-extrabold font-mono text-[#02f022] animate-marquee2"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>Big Buck Bunny</span>
                         </div>
                     </div>
 
                     <div class="space-y-2 bg-zinc-900 p-4 rounded-2xl">
-                        <div class="flex text-sm font-mono overflow-hidden">File name : <div id="fileName"></div></div>
-                        <div class="flex text-sm font-mono overflow-hidden">File size : <div id="fileSize"></div></div>
-                        <div class="flex text-sm font-mono overflow-hidden">Uploaded on : <div id="uploadedOn"></div></div>
+                        <div class="flex text-sm font-mono overflow-hidden">File name : </div> <div class="fileName"></div>
+                        <div class="flex text-sm font-mono overflow-hidden">File size : </div> <div id="fileSize"></div>
+                        <div class="flex text-sm font-mono overflow-hidden">Uploaded on : </div> <div id="uploadedOn"></div>
                     </div>
                 </div>
 
@@ -150,8 +150,8 @@
                 .then(data => {
                     // Update the HTML elements with the API response data
                     document.title = `Streaming ${decodeURIComponent(data.file_name)}` || placeHolder;
-                    document.getElementById('fileNameBig').textContent = decodeURIComponent(data.file_name) || placeHolder;
-                    document.getElementById('fileName').textContent = decodeURIComponent(data.file_name) || placeHolder;
+                    document.getElementsByClassName("fileName").textContent = decodeURIComponent(data.file_name) || placeHolder;
+                    
                     document.getElementById('fileSize').textContent = formatFileSize(data.file_size) || "Not Available";
                     document.getElementById('uploadedOn').textContent = data.created_on || "Not Available";
 
