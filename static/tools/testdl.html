@@ -74,11 +74,19 @@
                     </div>
 
                     <div class="space-y-2 bg-zinc-900 p-4 rounded-2xl">
-                        <div class="flex text-sm font-mono overflow-hidden">File name : </div> <span id="fileName"></span>
-                        <div class="flex text-sm font-mono overflow-hidden">File size : </div> <span id="fileSize"></span>
-                        <div class="flex text-sm font-mono overflow-hidden">Uploaded on : </div> <span id="uploadedOn"></span>
-                    </div> 
-                   
+                        <div class="flex flex-row justify-between">
+                            <div class="flex text-sm font-mono">File name:</div>
+                            <div id="fileName"></div>
+                        </div>
+                        <div class="flex flex-row justify-between">
+                            <div class="flex text-sm font-mono">File size:</div>
+                            <div id="fileSize"></div>
+                        </div>
+                        <div class="flex flex-row justify-between">
+                            <div class="flex text-sm font-mono">File date:</div>
+                            <div id="fileDate"></div>
+                        </div>
+                    </div>   
 
                 </div>
 
@@ -145,7 +153,7 @@
             const videoPlayer = document.getElementById('videoPlayer');
 
             const setdlLink = document.getElementById('dlLink');
-
+            
             fetch(`https://f2lk.me/api/f/${id}`)
                 .then(response => response.json())
                 .then(data => {
@@ -155,7 +163,10 @@
                     document.getElementById('fileName1').textContent = decodeURIComponent(data.file_name);
                     document.getElementById('fileName2').textContent = decodeURIComponent(data.file_name);
                     document.getElementById('fileSize').textContent = formatFileSize(data.file_size);
-                    document.getElementById('uploadedOn').textContent = data.created_on;
+                    const timeStamp = data.created_on;
+                    const date = new Date(timeStamp);
+                    const humanReadableDate = date.toLocalString();
+                    document.getElementById('uploadedOn').textContent = humanReadableDate;
 
                     const videoLink = `https://f2lk.me/${id}` ;
                     videoPlayer.src = videoLink;
@@ -175,9 +186,6 @@
                 }
                 return size.toFixed(2) + ' ' + units[i];
             }
-
-            const cleanURL = `/tools/player/`;
-            window.history.replaceState({}, '', cleanURL);
         });
     </script>
         
