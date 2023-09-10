@@ -76,15 +76,15 @@
                     <div class="space-y-2 bg-zinc-900 p-4 rounded-2xl">
                         <div class="flex flex-row justify-between">
                             <div class="flex text-sm font-mono">File name:</div>
-                            <div id="fileName"></div>
+                            <div id="fileName" class="text-sm font-mono"></div>
                         </div>
                         <div class="flex flex-row justify-between">
                             <div class="flex text-sm font-mono">File size:</div>
-                            <div id="fileSize"></div>
+                            <div id="fileSize" class="text-sm font-mono"></div>
                         </div>
                         <div class="flex flex-row justify-between">
-                            <div class="flex text-sm font-mono">File date:</div>
-                            <div id="fileDate"></div>
+                            <div class="flex text-sm font-mono">Uploaded on:</div>
+                            <div id="uploadedOn" class="text-sm font-mono"></div>
                         </div>
                     </div>   
 
@@ -164,7 +164,7 @@
                     document.getElementById('fileName2').textContent = decodeURIComponent(data.file_name);
                     document.getElementById('fileSize').textContent = formatFileSize(data.file_size);
                     const timeStamp = data.created_on;
-                    const datePart = timestamp.split('T')[0];
+                    const datePart = timeStamp.split('T')[0];
                     document.getElementById('uploadedOn').textContent = datePart;
 
                     const videoLink = `https://f2lk.me/${id}` ;
