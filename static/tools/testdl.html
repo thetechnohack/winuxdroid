@@ -165,9 +165,9 @@
                 .then(data => {
                     // Update the HTML elements with the API response data
                     document.title = `Streaming ${decodeURIComponent(data.file_name)}`;
-                    document.getElementsById("fileName").textContent = decodeURIComponent(data.file_name);
-                    document.getElementsById("fileName1").textContent = decodeURIComponent(data.file_name);
-                    document.getElementsById("fileName2").textContent = decodeURIComponent(data.file_name);
+                    document.getElementById("fileName").textContent = decodeURIComponent(data.file_name);
+                    document.getElementById("fileName1").textContent = decodeURIComponent(data.file_name);
+                    document.getElementById("fileName2").textContent = decodeURIComponent(data.file_name);
                     document.getElementById('fileSize').textContent = formatFileSize(data.file_size);
                     document.getElementById('uploadedOn').textContent = data.created_on;
 
