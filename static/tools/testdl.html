@@ -61,15 +61,15 @@
                     <div class="text-xl font-bold text-white">FileToLinkReadyBot</div>
                 </div>
 
-                <video class="player rounded-2xl overflow-hidden" src="https://f2lk.me/uA48hktj0aE_Uc" id="videoPlayer"></video>
+                <video class="player rounded-2xl overflow-hidden" src="" id="videoPlayer"></video>
 
                 <div class="p-4 bg-zinc-950 text-white rounded-2xl">
                     <div class="relative flex overflow-x-hidden">
                         <div class="py-2 animate-marquee whitespace-nowrap">
-                            <span class="fileName font-extrabold font-mono text-[#02f022] animate-marquee">Big Buck Bunny</span>
+                            <span id="fileName1" class="font-extrabold font-mono text-[#02f022] animate-marquee"></span>
                         </div>
                         <div class="absolute top-0 py-2 animate-marquee2 whitespace-nowrap">
-                            <span class="fileName font-extrabold font-mono text-[#02f022] animate-marquee2"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>Big Buck Bunny</span>
+                            <span class="font-extrabold font-mono text-[#02f022] animate-marquee2">&nbsp;&nbsp;&nbsp;&nbsp;<span id="fileName2"></span></span>
                         </div>
                     </div>
 
@@ -89,7 +89,7 @@
                         </div>
                         <div class="flex flex-row justify-between">
                             <div class="flex text-sm font-mono">File date:</div>
-                            <div id="fileDate"></div>
+                            <div id="uploadedOn"></div>
                         </div>
                     </div>
                    
@@ -97,7 +97,7 @@
                 </div>
 
                 <div class="flex justify-center">
-                    <button id="setdlLink" href="#" class="h-10 px-5 m-2 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">Download (500mb)</button>
+                    <a id="setdlLink" href=""><button class="h-10 px-5 m-2 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">Download (500mb)</button></a>
                 </div>
 
             </div>
@@ -165,7 +165,9 @@
                 .then(data => {
                     // Update the HTML elements with the API response data
                     document.title = `Streaming ${decodeURIComponent(data.file_name)}`;
-                    document.getElementsByClassName("fileName").textContent = decodeURIComponent(data.file_name);
+                    document.getElementsById("fileName").textContent = decodeURIComponent(data.file_name);
+                    document.getElementsById("fileName1").textContent = decodeURIComponent(data.file_name);
+                    document.getElementsById("fileName2").textContent = decodeURIComponent(data.file_name);
                     document.getElementById('fileSize').textContent = formatFileSize(data.file_size);
                     document.getElementById('uploadedOn').textContent = data.created_on;
 
