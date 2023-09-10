@@ -165,8 +165,12 @@
                     document.getElementById('fileSize').textContent = formatFileSize(data.file_size);
                     const timeStamp = data.created_on;
                     const date = new Date(timeStamp);
-                    const humanReadableDate = date.toLocalString();
-                    document.getElementById('uploadedOn').textContent = humanReadableDate;
+                    const monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+                    const year = date.getFullYear();
+                    const month = monthNames[date.getMonth()];
+                    const day = date.getDate();
+                    const humanDate = `${day} ${month} ${year}`;
+                    document.getElementById('uploadedOn').textContent = humanDate;
 
                     const videoLink = `https://f2lk.me/${id}` ;
                     videoPlayer.src = videoLink;
