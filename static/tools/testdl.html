@@ -149,12 +149,12 @@
         ];
 
         document.addEventListener('DOMContentLoaded', () => {
-            var modal = document.getElementById("my_modal");
-            modal.showModal();
-
             const urlParams = new URLSearchParams(window.location.search);
             const id = urlParams.get("id") || 'uA48hktj0aE_Uc';
-
+          
+            var modal = document.getElementById("my_modal");
+            modal.showModal();
+          
             const player = Plyr.setup('.player', { controls });
             const videoPlayer = document.getElementById('videoPlayer');
 
