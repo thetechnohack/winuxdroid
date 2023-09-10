@@ -74,7 +74,7 @@
                     </div>
 
                     <div class="space-y-2 bg-zinc-900 p-4 rounded-2xl">
-                        <div class="flex text-sm font-mono overflow-hidden">File name : </div> <span class="fileName"></span>
+                        <div class="flex text-sm font-mono overflow-hidden">File name : </div> <span id="fileName"></span>
                         <div class="flex text-sm font-mono overflow-hidden">File size : </div> <span id="fileSize"></span>
                         <div class="flex text-sm font-mono overflow-hidden">Uploaded on : </div> <span id="uploadedOn"></span>
                     </div> 
@@ -151,9 +151,9 @@
                 .then(data => {
                     // Update the HTML elements with the API response data
                     document.title = `Streaming ${decodeURIComponent(data.file_name)}`;
-                    document.getElementById("fileName").textContent = decodeURIComponent(data.file_name);
-                    document.getElementById("fileName1").textContent = decodeURIComponent(data.file_name);
-                    document.getElementById("fileName2").textContent = decodeURIComponent(data.file_name);
+                    document.getElementById('fileName').textContent = decodeURIComponent(data.file_name);
+                    document.getElementById('fileName1').textContent = decodeURIComponent(data.file_name);
+                    document.getElementById('fileName2').textContent = decodeURIComponent(data.file_name);
                     document.getElementById('fileSize').textContent = formatFileSize(data.file_size);
                     document.getElementById('uploadedOn').textContent = data.created_on;
 
