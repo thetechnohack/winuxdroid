@@ -73,15 +73,31 @@
                         </div>
                     </div>
 
-                    <div class="space-y-2 bg-zinc-900 p-4 rounded-2xl">
+                    <!-- <div class="space-y-2 bg-zinc-900 p-4 rounded-2xl">
                         <div class="flex text-sm font-mono overflow-hidden">File name : </div> <div class="fileName"></div>
                         <div class="flex text-sm font-mono overflow-hidden">File size : </div> <div id="fileSize"></div>
                         <div class="flex text-sm font-mono overflow-hidden">Uploaded on : </div> <div id="uploadedOn"></div>
+                    </div> -->
+                    <div class="space-y-2 bg-zinc-900 p-4 rounded-2xl">
+                        <div class="flex flex-row justify-between">
+                            <div class="flex text-sm font-mono">File name:</div>
+                            <div class="fileName"></div>
+                        </div>
+                        <div class="flex flex-row justify-between">
+                            <div class="flex text-sm font-mono">File size:</div>
+                            <div id="fileSize"></div>
+                        </div>
+                        <div class="flex flex-row justify-between">
+                            <div class="flex text-sm font-mono">File date:</div>
+                            <div id="fileDate"></div>
+                        </div>
                     </div>
+                   
+
                 </div>
 
                 <div class="flex justify-center">
-                    <button class="h-10 px-5 m-2 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">Download (500mb)</button>
+                    <button id="setdlLink" href="#" class="h-10 px-5 m-2 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">Download (500mb)</button>
                 </div>
 
             </div>
@@ -143,17 +159,15 @@
             const videoPlayer = document.getElementById('videoPlayer');
 
             const setdlLink = document.getElementById('dlLink');
-            const placeHolder = "Big Buck Bunny";
 
             fetch(`https://f2lk.me/api/f/${id}`)
                 .then(response => response.json())
                 .then(data => {
                     // Update the HTML elements with the API response data
-                    document.title = `Streaming ${decodeURIComponent(data.file_name)}` || placeHolder;
-                    document.getElementsByClassName("fileName").textContent = decodeURIComponent(data.file_name) || placeHolder;
-                    
-                    document.getElementById('fileSize').textContent = formatFileSize(data.file_size) || "Not Available";
-                    document.getElementById('uploadedOn').textContent = data.created_on || "Not Available";
+                    document.title = `Streaming ${decodeURIComponent(data.file_name)}`;
+                    document.getElementsByClassName("fileName").textContent = decodeURIComponent(data.file_name);
+                    document.getElementById('fileSize').textContent = formatFileSize(data.file_size);
+                    document.getElementById('uploadedOn').textContent = data.created_on;
 
                     const videoLink = `https://f2lk.me/${id}` ;
                     videoPlayer.src = videoLink;
