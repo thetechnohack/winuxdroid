@@ -158,10 +158,9 @@
 
                     const fileLink = `https://f2lk.me/${id}`;
                     setdlLink.href = fileLink;
-							      const textToCopy = fileLink;
-					          const textarea = document.createElement("textarea");
-					          textarea.value = textToCopy;
-					          document.body.appendChild(textarea);
+					const textarea = document.createElement("textarea");
+					textarea.value = fileLink;
+					document.body.appendChild(textarea);
                     
                     function downloadFileWithCountdown() {
                         const downloadButton = document.getElementById("dlLink");
@@ -201,11 +200,11 @@
 					            copyLinkButton.textContent = `Wait ${countdown} sec`;
 					            countdown--;
 					        } else {
-					            copyLinkButton.disabled = false;
 					            textarea.select();
 					            document.execCommand('copy');
 					            copyLinkButton.textContent = "Copied!";
 					            clearInterval(countdownInterval);
+								copyLinkButton.disabled = false;
 					        }
 					    }, 1000);
 					});
