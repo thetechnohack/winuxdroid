@@ -76,17 +76,17 @@
                     <div class="space-y-2 bg-zinc-900 p-4 rounded-2xl overflow-hidden">
                         <div class="flex items-center space-x-2 text-sm font-mono">
                             <div class="flex">file_name</div>
-	                    <div class="flex">:</div>
+	                    <div class="flex">&nbsp;:&nbsp;</div>
 	                    <div id="fileName" class="text-ellipsis line-clamp-1 max-w-full select-text overflow-clip"></div>
                         </div>
                         <div class="flex items-center space-x-2 text-sm font-mono">
                             <div class="flex">file_size</div>
-	                    <div class="flex">:</div>
+	                    <div class="flex">&nbsp;:&nbsp;</div>
 	                    <div id="fileSize" class="text-ellipsis line-clamp-1 max-w-full select-text overflow-clip"></div>
                         </div>
                         <div class="flex items-center space-x-2 text-sm font-mono">
-                            <div class="flex">file_date</div>
-	                    <div class="flex">:</div>
+                            <div class="flex">upload_date</div>
+	                    <div class="flex">&nbsp;:&nbsp;</div>
 	                    <div id="uploadedOn" class="text-ellipsis line-clamp-1 max-w-full select-text overflow-clip"></div>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
                 </div>
 
                 <div class="flex justify-center">
-                    <a id="setdlLink" href=""><button class="h-10 px-5 m-2 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">Download (500mb)</button></a>
+                    <a id="dlLink" href=""><button class="h-10 px-5 m-2 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">Download 📂</button></a>
                 </div>
 
             </div>
@@ -162,10 +162,10 @@
                 .then(response => response.json())
                 .then(data => {
                     // Update the HTML elements with the API response data
-                    document.title = `Streaming ${decodeURIComponent(data.file_name)}`;
+                    document.title = `Streaming ${decodeURIComponent(cleanFilename(data.file_name))}`;
                     document.getElementById('fileName').textContent = decodeURIComponent(cleanFilename(data.file_name));
-                    document.getElementById('fileName1').textContent = decodeURIComponent(data.file_name);
-                    document.getElementById('fileName2').textContent = decodeURIComponent(data.file_name);
+                    document.getElementById('fileName1').textContent = decodeURIComponent(cleanFilename(data.file_name));
+                    document.getElementById('fileName2').textContent = decodeURIComponent(cleanFilename(data.file_name));
                     document.getElementById('fileSize').textContent = formatFileSize(data.file_size);
                     document.getElementById('uploadedOn').textContent = formatDate(data.created_on);
 
@@ -196,9 +196,9 @@
 	    function cleanFilename(originalFilename) {
     		const clean = decodeURIComponent(originalFilename)
         	    .replace(/\+/g, ' ')        // Replace plus sign (+) with space
-        	    .replace(/[_-]/g, ' ')      // Replace underscores and hyphens with space
+        	    //.replace(/[_-]/g, ' ')      // Replace underscores and hyphens with space
         	    .replace(/\.\s+/g, '.')     // Remove extra spaces before file extension
-        	    .replace(/[^a-zA-Z0-9. ]/g, ''); // Remove any remaining special characters
+        	    //.replace(/[^a-zA-Z0-9. ]/g, ''); // Remove any remaining special characters
     		return clean;
 	    }
           
