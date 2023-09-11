@@ -158,15 +158,72 @@
 
                     const fileLink = `https://f2lk.me/${id}`;
                     setdlLink.href = fileLink;
-                    return fileLink;
+                    
+                    function downloadFileWithCountdown() {
+                        const downloadButton = document.getElementById("dlLink");
+                        downloadButton.disabled = true;
+
+                        let countdown = 10;
+
+                        const intervalId = setInterval(function () {
+                            downloadButton.textContent = `Wait ${countdown} sec`;
+                            countdown--;
+
+                            if (countdown < 0) {
+                                clearInterval(intervalId);
+                                downloadButton.textContent = 'Downloading...';
+
+                                const fileUrl = fileLink;
+                                console.log(fileUrl);
+                                const a = document.createElement('a');
+                                a.href = fileUrl;
+                                a.download = decodeURIComponent(data.file_name);
+                                a.click();
+                                downloadButton.disabled = false;
+                            }
+                        }, 1000);
+                    }
+
+                    const downloadButton = document.getElementById("dlLink");
+                    downloadButton.addEventListener('click', downloadFileWithCountdown);
+
+
+                    function copyLinkWithCountdown() {
+                        const copyButton = document.getElementById('copyLink');
+                        copyButton.disabled = true;
+                    
+                        let countdown = 10;
+                    
+                        const intervalId = setInterval(function () {
+                            if (countdown === 0) {
+                                clearInterval(intervalId);
+                                copyButton.disabled = false;
+                                copyButton.textContent = '✅ Copied';
+                            } else {
+                                copyButton.textContent = `wait ${countdown} sec`;
+                                countdown--;
+                            }
+                        }, 1000);
+                    
+                        const link = fileLink;
+                        console.log(link);
+                        const textArea = document.createElement('textarea');
+                        textArea.value = link;
+                        document.body.appendChild(textArea);
+                    
+                        textArea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textArea);
+                    }
+                
+                    const copyButton = document.getElementById('copyLink');
+                    copyButton.addEventListener('click', copyLinkWithCountdown);
                 })
                 .catch(error => {
                     console.error('Error fetching data from API:', error);
                 });
-            
-            const fileLink = fileLink;
-            console.log(fileLink);
-
+                    
+                    
             function formatFileSize(size) {
                 const units = ['B', 'KB', 'MB', 'GB', 'TB'];
                 let i = 0;
@@ -176,12 +233,12 @@
                 }
                 return size.toFixed(2) + ' ' + units[i];
             }
-
+        
 	        function formatDate(dateString) {
     	    	const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
             	return new Date(dateString).toLocaleDateString('en-US', options);
 	        }
-
+        
 	        function cleanFilename(originalFilename) {
     		    const clean = decodeURIComponent(originalFilename)
         	        .replace(/\+/g, ' ')        // Replace plus sign (+) with space
@@ -190,75 +247,6 @@
         	        //.replace(/[^a-zA-Z0-9. ]/g, ''); // Remove any remaining special characters
     		    return clean;
 	        }
-
-
-            function downloadFileWithCountdown() {
-                const downloadButton = document.getElementById("dlLink");
-                downloadButton.disabled = true;
-
-                let countdown = 10;
-
-                const intervalId = setInterval(function () {
-                    downloadButton.textContent = `Wait ${countdown} sec`;
-                    countdown--;
-
-                    if (countdown < 0) {
-                        clearInterval(intervalId);
-                        downloadButton.textContent = 'Downloading...';
-
-                        const fileUrl = fileLink;
-                        console.log(fileUrl);
-                        const a = document.createElement('a');
-                        a.href = fileUrl;
-                        a.download = decodeURIComponent(data.file_name);
-                        a.click();
-                        downloadButton.disabled = false;
-                    }
-                }, 1000);
-            }
-
-            const downloadButton = document.getElementById("dlLink");
-            downloadButton.addEventListener('click', downloadFileWithCountdown);
-
-
-            function copyLinkWithCountdown() {
-                const copyButton = document.getElementById('copyLink');
-            
-                // Disable the button during the countdown
-                copyButton.disabled = true;
-            
-                let countdown = 10; // Countdown in seconds
-            
-                // Update the button text with the countdown
-                const intervalId = setInterval(function () {
-                    if (countdown === 0) {
-                        clearInterval(intervalId); // Stop the countdown
-                        // Enable the button for future copying
-                        copyButton.disabled = false;
-                        // Update the button text to "Copied"
-                        copyButton.textContent = '✅ Copied';
-                    } else {
-                        copyButton.textContent = `Copy Link in ${countdown} seconds`;
-                        countdown--;
-                    }
-                }, 1000); // Update the countdown every 1 second
-            
-                // Copy link to clipboard
-                const link = fileLink;
-                console.log(link);
-                const textArea = document.createElement('textarea');
-                textArea.value = link;
-                document.body.appendChild(textArea);
-            
-                textArea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textArea);
-            }
-        
-            // Attach the copyLinkWithCountdown function to the button click event
-            const copyButton = document.getElementById('copyLink');
-            copyButton.addEventListener('click', copyLinkWithCountdown);
-        
           
         });
     </script>
