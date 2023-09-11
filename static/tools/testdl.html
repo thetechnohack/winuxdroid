@@ -198,9 +198,15 @@
                         		countdown--;
                     		} else {
                             	clearInterval(countdownInterval);
+								copyLinkButton.disabled = false;
 								const textToCopy = fileLink;
-                            	textToCopy.select();
-								navigator.clipboard.writeText(textToCopy);
+								console.log(textToCopy)
+								var textarea=document.createElement("textarea");
+								textarea.value=textToCopy;
+  								document.body.appendChild(textarea);
+								textarea.select();
+  								document.execCommand("copy");
+ 								document.body.removeChild(textarea);
                             	copyLinkButton.textContent = "Copied!";
                             	setTimeout(function () {
                                 	copyLinkButton.textContent = "Copy Link";
