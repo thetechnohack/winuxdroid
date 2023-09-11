@@ -192,13 +192,15 @@
                         copyButton.disabled = true;
                     
                         let countdown = 10;
+
+			const testArea = document.createElement('textarea');
+			const textToCopy = fileLink;
                     
                         const intervalId = setInterval(function () {
                             if (countdown === 0) {
                                 clearInterval(intervalId);
                                 copyButton.disabled = false;
-                                const textToCopy = fileLink;
-				const testArea = document.createElement('textarea');
+                                
 				textArea.value = textToCopy;
 				document.body.appendChild(textArea);
 
@@ -213,7 +215,7 @@
 				}, 3000);
       
                             } else {
-                                copyButton.textContent = `wait ${countdown} sec`;
+                                copyButton.textContent = `Wait ${countdown} sec`;
                                 countdown--;
                             }
                         }, 1000);
