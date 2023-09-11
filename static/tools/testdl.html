@@ -187,34 +187,40 @@
                     downloadButton.addEventListener('click', downloadFileWithCountdown);
 
 
-            	    const copyLinkButton = document.getElementById('copyLink');
-		    		copyLinkButton.addEventListener('click', function () {
-                		copyLinkButton.disabled = true;
+					const copyLinkButton = document.getElementById('copyLink');
+					copyLinkButton.addEventListener('click', function () {
+					    copyLinkButton.disabled = true;
+					
+					    let countdown = 10;
+					    const countdownInterval = setInterval(function () {
+					        if (countdown > 0) {
+					            copyLinkButton.textContent = `Wait ${countdown} sec`;
+					            countdown--;
+					        } else {
+					            copyLinkButton.disabled = false;
+					            const textToCopy = fileLink;
+					            console.log(textToCopy);
+					
+					            // Create a temporary textarea element
+					            const textarea = document.createElement("textarea");
+					            textarea.value = textToCopy;
+					            document.body.appendChild(textarea);
+					
+					            // Select the text in the textarea
+					            textarea.select();
+					
+					            // Copy the selected text to the clipboard
+					            document.execCommand('copy');
+					
+					            // Remove the temporary textarea
+					            document.body.removeChild(textarea);
+					
+					            copyLinkButton.textContent = "Copied!";
+					            clearInterval(countdownInterval);
+					        }
+					    }, 1000);
+					});
 
-                		let countdown = 10;
-                		const countdownInterval = setInterval(function () {
-                    		if (countdown > 0) {
-                    			copyLinkButton.textContent = `Wait ${countdown} sec`;
-                        		countdown--;
-                    		} else {
-								copyLinkButton.disabled = false;
-								const textToCopy = fileLink;
-								console.log(textToCopy)
-								var textarea=document.createElement("textarea");
-								textarea.value=textToCopy;
-  								document.body.appendChild(textarea);
-								textarea.select();
-  								navigator.clipboard.writeText(textarea.value)
- 								document.body.removeChild(textarea);
-                            	copyLinkButton.textContent = "Copied!";
-                            	clearInterval(countdownInterval);
-                       //      	setTimeout(function () {
-                       //          	copyLinkButton.textContent = "Copy Link";
-                       //          	copyLinkButton.disabled = false;
-                    			// }, 2000);
-                        	}
-                    	}, 1000);
-                    });
 
                 })
                 .catch(error => {
