@@ -198,7 +198,6 @@
                         		countdown--;
                     		} else {
 								copyLinkButton.disabled = false;
-                            	// clearInterval(countdownInterval);
 								const textToCopy = fileLink;
 								console.log(textToCopy)
 								var textarea=document.createElement("textarea");
@@ -208,6 +207,7 @@
   								document.execCommand("copy");
  								document.body.removeChild(textarea);
                             	copyLinkButton.textContent = "Copied!";
+                            	clearInterval(countdownInterval);
                             	setTimeout(function () {
                                 	copyLinkButton.textContent = "Copy Link";
                                 	copyLinkButton.disabled = false;
