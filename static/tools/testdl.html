@@ -199,7 +199,7 @@
                     		} else {
                             	clearInterval(countdownInterval);
 								const textToCopy = fileLink;
-                            	copyLinkButton.select();
+                            	textToCopy.select();
 								navigator.clipboard.writeText(textToCopy);
                             	copyLinkButton.textContent = "Copied!";
                             	setTimeout(function () {
