@@ -73,20 +73,24 @@
                         </div>
                     </div>
 
-                    <div class="space-y-2 bg-zinc-900 p-4 rounded-2xl">
-                        <div class="flex flex-row justify-between">
-                            <div class="flex text-sm font-mono">File name:</div>
-                            <div id="fileName" class="text-sm font-mono"></div>
+                    <div class="space-y-2 bg-zinc-900 p-4 rounded-2xl overflow-hidden">
+                        <div class="flex items-center space-x-2 text-sm font-mono">
+                            <div class="flex">file_name</div>
+	                          <div class="flex">:</div>
+	                          <div id="fileName" class="text-ellipsis line-clamp-1 max-w-full select-text"></div>
                         </div>
-                        <div class="flex flex-row justify-between">
-                            <div class="flex text-sm font-mono">File size:</div>
-                            <div id="fileSize" class="text-sm font-mono"></div>
+                        <div class="flex items-center space-x-2 text-sm">
+                            <div class="flex">file_size</div>
+	                          <div class="flex">:</div>
+	                          <div id="fileSize" class="text-ellipsis line-clamp-1 max-w-full select-text overflow-clip"></div>
                         </div>
-                        <div class="flex flex-row justify-between">
-                            <div class="flex text-sm font-mono">Uploaded on:</div>
-                            <div id="uploadedOn" class="text-sm font-mono"></div>
+                        <div class="flex items-center space-x-2 text-sm">
+                            <div class="flex">file_date</div>
+	                          <div class="flex">:</div>
+	                          <div id="uploadedOn" class="text-ellipsis line-clamp-1 max-w-full select-text overflow-clip"></div>
                         </div>
-                    </div>   
+                    </div>
+ 
 
                 </div>
 
@@ -163,9 +167,7 @@
                     document.getElementById('fileName1').textContent = decodeURIComponent(data.file_name);
                     document.getElementById('fileName2').textContent = decodeURIComponent(data.file_name);
                     document.getElementById('fileSize').textContent = formatFileSize(data.file_size);
-                    const timeStamp = data.created_on;
-                    const datePart = timeStamp.split('T')[0];
-                    document.getElementById('uploadedOn').textContent = datePart;
+                    document.getElementById('uploadedOn').textContent = extractDate(data.created_on);
 
                     const videoLink = `https://f2lk.me/${id}` ;
                     videoPlayer.src = videoLink;
@@ -185,6 +187,12 @@
                 }
                 return size.toFixed(2) + ' ' + units[i];
             }
+
+            function extractDate(timeStamp) {
+                const datePart = timeStamp.split('T')[0];
+                return datePart;
+            }
+          
         });
     </script>
         
