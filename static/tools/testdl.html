@@ -174,7 +174,6 @@
                                 downloadButton.textContent = 'Downloading...';
 
                                 const fileUrl = fileLink;
-                                console.log(fileUrl);
                                 const a = document.createElement('a');
                                 a.href = fileUrl;
                                 a.download = decodeURIComponent(data.file_name);
@@ -199,23 +198,23 @@
                                 clearInterval(intervalId);
                                 copyButton.disabled = false;
                                 copyButton.textContent = '✅ Copied';
+
+                                const link = fileLink;
+                                console.log(link);
+                                const textArea = document.createElement('textarea');
+                                textArea.value = link;
+                                document.body.appendChild(textArea);
+
+                                textArea.select();
+                                document.execCommand('copy');
+                                document.body.removeChild(textArea);
                             } else {
                                 copyButton.textContent = `wait ${countdown} sec`;
                                 countdown--;
                             }
                         }, 1000);
-                    
-                        const link = fileLink;
-                        console.log(link);
-                        const textArea = document.createElement('textarea');
-                        textArea.value = link;
-                        document.body.appendChild(textArea);
-                    
-                        textArea.select();
-                        document.execCommand('copy');
-                        document.body.removeChild(textArea);
                     }
-                
+                    
                     const copyButton = document.getElementById('copyLink');
                     copyButton.addEventListener('click', copyLinkWithCountdown);
                 })
