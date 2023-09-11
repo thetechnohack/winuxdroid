@@ -69,12 +69,26 @@
                             <span id="fileName1" class="font-extrabold font-mono text-[#02f022] animate-marquee"></span>
                         </div>
                         <div class="absolute top-0 py-2 animate-marquee2 whitespace-nowrap">
-                            <span class="font-extrabold font-mono text-[#02f022] animate-marquee2"><span id="fileName2">&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+                            <span id="fileName2" class="font-extrabold font-mono text-[#02f022] animate-marquee2"></span>
                         </div>
                     </div>
 
-                    <div id="fileMeta" class="space-y-2 bg-zinc-900 p-4 rounded-2xl overflow-hidden">
-
+                    <div class="space-y-2 bg-zinc-900 p-4 rounded-2xl overflow-hidden">
+                        <div class="flex items-center space-x-2 text-sm font-mono">
+                            <div class="flex">file_name</div>
+	                    <div class="flex">&nbsp;:&nbsp;</div>
+	                    <div id="fileName" class="text-ellipsis line-clamp-1 max-w-full select-text overflow-clip"></div>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm font-mono">
+                            <div class="flex">file_size</div>
+	                    <div class="flex">&nbsp;:&nbsp;</div>
+	                    <div id="fileSize" class="text-ellipsis line-clamp-1 max-w-full select-text overflow-clip"></div>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm font-mono">
+                            <div class="flex">upload_date</div>
+	                    <div class="flex">&nbsp;:&nbsp;</div>
+	                    <div id="uploadedOn" class="text-ellipsis line-clamp-1 max-w-full select-text overflow-clip"></div>
+                        </div>
                     </div>
  
 
@@ -149,25 +163,11 @@
                 .then(data => {
                     // Update the HTML elements with the API response data
                     document.title = `Streaming ${decodeURIComponent(cleanFilename(data.file_name))}`;
+                    document.getElementById('fileName').textContent = decodeURIComponent(cleanFilename(data.file_name));
                     document.getElementById('fileName1').textContent = decodeURIComponent(cleanFilename(data.file_name));
                     document.getElementById('fileName2').textContent = decodeURIComponent(cleanFilename(data.file_name));
-					document.getElementById('fileMeta').innerHTML = `
-	 				    <div class="flex items-center space-x-2 text-sm font-mono">
-                            <div class="flex">file_name</div>
-	                    	<div class="flex">&nbsp;:&nbsp;</div>
-	                    	<div class="text-ellipsis line-clamp-1 max-w-full select-text overflow-clip">${decodeURIComponent(cleanFilename(data.file_name)}</div>
-                        </div>
-                        <div class="flex items-center space-x-2 text-sm font-mono">
-                            <div class="flex">file_size</div>
-	                    	<div class="flex">&nbsp;:&nbsp;</div>
-	                    	<div class="text-ellipsis line-clamp-1 max-w-full select-text overflow-clip">${formatFileSize(data.file_size)}</div>
-                        </div>
-                        <div class="flex items-center space-x-2 text-sm font-mono">
-                            <div class="flex">upload_date</div>
-	                    	<div class="flex">&nbsp;:&nbsp;</div>
-	                    	<div class="text-ellipsis line-clamp-1 max-w-full select-text overflow-clip">${formatDate(data.created_on)}</div>
-                        </div>
-	 				`
+                    document.getElementById('fileSize').textContent = formatFileSize(data.file_size);
+                    document.getElementById('uploadedOn').textContent = formatDate(data.created_on);
 
                     const videoLink = `https://f2lk.me/${id}` ;
                     videoPlayer.src = videoLink;
