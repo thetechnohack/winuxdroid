@@ -197,19 +197,20 @@
                             if (countdown === 0) {
                                 clearInterval(intervalId);
                                 copyButton.disabled = false;
-                                const textArea = document.createElement('textarea');
-                                textArea.value = fileLink;
-                                document.body.appendChild(textArea);
-
-                                textArea.select();
-                                document.execCommand('copy');
-                                document.body.removeChild(textArea);
-                                copyButton.textContent = '✅ Copied';
-
-				setTimeout(() => {
-                  			copyButton.textContent = '🔗 Copy Link';
-                		}, 3000);
-				    
+                                const textToCopy = fileLink;
+                            
+                                navigator.clipboard.writeText(textToCopy)
+                                    .then(function () {
+                                        copyButton.textContent = '✅ Copied';
+                                    
+                                        setTimeout(() => {
+                                            copyButton.textContent = '🔗 Copy Link';
+                                        }, 3000);
+                                    })
+                                    .catch(function (error) {
+                                        console.error('Error copying text: ', error);
+                                        copyButton.textContent = '❌ Error';
+                                    });
                             } else {
                                 copyButton.textContent = `wait ${countdown} sec`;
                                 countdown--;
@@ -219,6 +220,7 @@
                     
                     const copyButton = document.getElementById('copyLink');
                     copyButton.addEventListener('click', copyLinkWithCountdown);
+
                 })
                 .catch(error => {
                     console.error('Error fetching data from API:', error);
