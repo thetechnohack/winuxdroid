@@ -188,6 +188,7 @@
 
 
             	    const copyLinkButton = document.getElementById('copyLink');
+					const textToCopy = fileLink;
 		    		copyLinkButton.addEventListener('click', function () {
                 		copyLinkButton.disabled = true;
 
@@ -198,7 +199,7 @@
                         		countdown--;
                     		} else {
                             	clearInterval(countdownInterval);
-                            	copyTextToClipboard(fileLink);
+                            	copyTextToClipboard(textToCopy);
                             	copyLinkButton.textContent = "Copied!";
                             	setTimeout(function () {
                                 	copyLinkButton.textContent = "Copy Link";
