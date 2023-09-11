@@ -163,11 +163,11 @@
                 .then(data => {
                     // Update the HTML elements with the API response data
                     document.title = `Streaming ${decodeURIComponent(data.file_name)}`;
-                    document.getElementById('fileName').textContent = decodeURIComponent(data.file_name);
+                    document.getElementById('fileName').textContent = decodeURIComponent(cleanFilename(data.file_name));
                     document.getElementById('fileName1').textContent = decodeURIComponent(data.file_name);
                     document.getElementById('fileName2').textContent = decodeURIComponent(data.file_name);
                     document.getElementById('fileSize').textContent = formatFileSize(data.file_size);
-                    document.getElementById('uploadedOn').textContent = extractDate(data.created_on);
+                    document.getElementById('uploadedOn').textContent = formatDate(data.created_on);
 
                     const videoLink = `https://f2lk.me/${id}` ;
                     videoPlayer.src = videoLink;
@@ -188,10 +188,19 @@
                 return size.toFixed(2) + ' ' + units[i];
             }
 
-            function extractDate(timeStamp) {
-                const datePart = timeStamp.split('T')[0];
-                return datePart;
-            }
+	    function formatDate(dateString) {
+    	    	const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+            	return new Date(dateString).toLocaleDateString('en-US', options);
+	    }
+
+	    function cleanFilename(originalFilename) {
+    		const clean = decodeURIComponent(originalFilename)
+        	    .replace(/\+/g, ' ')        // Replace plus sign (+) with space
+        	    .replace(/[_-]/g, ' ')      // Replace underscores and hyphens with space
+        	    .replace(/\.\s+/g, '.')     // Remove extra spaces before file extension
+        	    .replace(/[^a-zA-Z0-9. ]/g, ''); // Remove any remaining special characters
+    		return clean;
+	    }
           
         });
     </script>
