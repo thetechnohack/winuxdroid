@@ -1,44 +1,141 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle"></title>
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css"/>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-14MFS6P5RS"></script>
-    <script>
-        // Google Analytics tracking code
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-14MFS6P5RS');
-    </script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Player</title>
+  <link rel="stylesheet" href="https://winuxdroid.com/tools/dist/output.css">
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css"/>
 </head>
+<body>
 
-<body class="bg-gradient-to-r from-zinc-900 via-zinc-900 to-zinc-900">
-    <div class="mx-auto px-2 max-w-xl flex flex-col space-y-3">
-        <div class="p-5 flex justify-center items-center space-x-3">
-            <svg role="img" fill="#26A5E4" width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Telegram</title><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.820 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-            <div class="text-xl font-bold text-white">FileToLinkReady Bot</div>
+<dialog id="my_modal" class="p-4 bg-[#000000] rounded-2xl">
+  <div class="modal-box">
+    <form method="dialog">
+      <button class="absolute right-2 top-2 font-extrabold outline-none text-green-700">✕</button>
+    </form>
+    <a href="https://bit.ly/3qYDu1f" target="_blank">
+        <img class="w-[240px] h-[120px]" src="https://files.codingninjas.in/mobile_size-7-30784.png" alt="Giveaway_banner">
+    </a>
+    <h3 class="font-bold text-xl text-[#fc0307] sm:text-2xl my-2">Hurry up !!!</h3>
+    <p class="mb-3 font-normal text-white">Hurry up and take a step towards your future as a programmer, hacker.
+        <li class="text-white p-1 m-1">Win Free Courses</li>
+        <li class="text-white p-1 m-1">Internship Interview Opportunities</li>
+        <li class="text-white p-1 m-1">Win rewards worth 15 lakh</li>
+    </p>
+    <a href="https://bit.ly/3qYDu1f" target="_blank">
+        <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Register Now</button>
+    </a>
+  </div>
+</dialog>
+
+    <div class="flex">
+
+        <div class="hidden md:w-1/4 md:block p-3 h-screen bg-[#282C35] dark:bg-zinc-900 overflow-auto no-scrollbar">
+            <h1 class="p-4 my-2 font-mono text-xl text-center sticky top-0 text-[#02f022] bg-[#000000] dark:bg-[#000000] rounded-lg">Events</h1>
+            <div class="flex-col space-y-3">
+
+                <div class="max-w-sm rounded-lg bg-[#000000] dark:bg-[#000000]">
+                    <a href="https://bit.ly/3qYDu1f">
+                        <img class="rounded-t-lg" src="https://files.codingninjas.in/mobile_size-7-30784.png" alt="ads_banner" />
+                    </a>
+                    <div class="p-5">
+                        <a href="https://bit.ly/3qYDu1f">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">Biggest Coding Event by CodingNinjas</h5>
+                        </a>
+                        <p class="mb-3 font-normal text-white">Hurry up and take a step towards your future as a programmer, hacker.
+                            <li class="text-white p-1 m-1">Win Free Courses</li>
+                            <li class="text-white p-1 m-1">Internship Interview Opportunities</li>
+                            <li class="text-white p-1 m-1">Win rewards worth 15 lakh</li>
+                        </p>
+                        <a href="https://bit.ly/3qYDu1f" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            Register Now
+                             <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
-        <video class="rounded-2xl player overflow-hidden" controls src="" id="videoPlayer"></video>
-        <div class="p-5 bg-zinc-950 text-white rounded-2xl">
-            <div class="font-extrabold font-serif text-purple-600"><span id="content"></span></div>
-            <hr><br>
-            <div class="space-y-2 bg-zinc-900 p-4 rounded-2xl">
-                <div class="flex text-sm font-mono">File Name : &nbsp;<span id="fileName"></span></div>
-                <div class="flex text-sm font-mono">File Size : &nbsp;<span id="fileSize"></span></div>
-                <div class="flex text-sm font-mono">Created On : &nbsp;<span id="createdon"></span></div>
-                <button type="button" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800"><a href="" id="dlLink">Download</a></button>
+
+
+        <div class="mx-auto w-full md:w-1/2 h-screen bg-[#000000] dark:bg-black overflow-auto no-scrollbar">
+            <div class="mx-auto px-2 max-w-xl flex flex-col space-y-3">
+
+                <div class="p-5 flex justify-center items-center space-x-3">
+                    <svg role="img" fill="#26A5E4" width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Telegram</title><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.820 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                    <div class="text-xl font-bold text-white">FileToLinkReadyBot</div>
+                </div>
+
+                <video class="player rounded-2xl bg-[#121212] overflow-hidden" src="" id="videoPlayer"></video>
+
+                <div class="p-4 bg-[#121212] text-white rounded-2xl md:hidden lg:hidden sm:hidden">
+                    <h1 class="text-xl font-extrabold text-red-600">Hurry up!!</h1>
+                    <p class="mb-3 font-normal text-white">Hurry up and take a step towards your future as a programmer, hacker.
+                            <li class="text-white">Win Free Courses</li>
+                            <li class="text-white">Internship Interview Opportunities</li>
+                            <li class="text-white">Win rewards worth 15 lakh INR</li>
+                            <a href="https://bit.ly/3qYDu1f" target="_blank" class="inline-flex items-center my-1 px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            Register Now
+                             <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                        </a>
+                    </p>
+                </div>
+
+                <div class="p-4 bg-[#121212] text-white rounded-2xl">
+                    <div class="relative flex overflow-x-hidden">
+                        <div class="py-2 animate-marquee whitespace-nowrap">
+                            <span id="fileName1" class="font-extrabold font-mono text-[#02f022] animate-marquee"></span>
+                        </div>
+                        <div class="absolute top-0 py-2 animate-marquee2 whitespace-nowrap">
+                            <span class="font-extrabold font-mono text-[#02f022] animate-marquee2">&nbsp;&nbsp;&nbsp;&nbsp;<span id="fileName2"></span></span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2 bg-[#0f0f0f] p-4 rounded-2xl overflow-hidden">
+                        <div class="flex items-center space-x-2 text-sm font-mono">
+                            <div class="flex">file_name</div>
+	                        <div class="flex">:</div>
+	                        <div id="fileName" class="text-ellipsis line-clamp-1 max-w-full select-text overflow-clip"></div>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm font-mono">
+                            <div class="flex">file_size</div>
+	                        <div class="flex">:</div>
+	                        <div id="fileSize" class="text-ellipsis line-clamp-1 max-w-full select-text overflow-clip"></div>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm font-mono">
+                            <div class="flex">upload_date</div>
+	                        <div class="flex">:</div>
+	                        <div id="uploadedOn" class="text-ellipsis line-clamp-1 max-w-full select-text overflow-clip"></div>
+                        </div>
+                    </div>
+ 
+
+                </div>
+
+                <div class="flex justify-center">
+                    <a id="dlLink" href=""><button class="h-10 px-5 m-2 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">📂 Download</button></a>
+                    <button id="copyLink" class="h-10 px-5 m-2 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">🔗 Copy Link</button>
+                </div>
+
             </div>
         </div>
-        <div class="flex justify-evenly p-5 bg-zinc-950 text-white rounded-2xl">
-            <button type="button" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800"><a href="tg://resolve?domain=filetolinkreadybot">Bot</a></button>
-            <button type="button" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800"><a href="tg://resolve?domain=computerbuddy">ComputerBuddy</a></button>
-            <button type="button" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800"><a href="tg://resolve?domain=thetechnohack">TheTechnoHack</a></button>
+
+        <div class="hidden md:w-1/4 md:block p-3 h-screen bg-[#282C35] dark:bg-zinc-900 overflow-auto no-scrollbar">
+            <h1 class="p-4 my-2 font-mono text-xl text-center sticky top-0 text-[#02f022] bg-[#000000] dark:bg-[#000000] rounded-lg">Latest on winuxdroid</h1>
+            <div class="flex-col space-y-3">
+
+                <div class="text-white font-extrabold text-center">Soon...🚀</div>
+
+            </div>
+
         </div>
+        
+    
     </div>
 
     <script src="https://cdn.plyr.io/3.6.12/plyr.js"></script>
@@ -58,27 +155,28 @@
         ];
 
         document.addEventListener('DOMContentLoaded', () => {
-            const player = Plyr.setup('.player', { controls });
-            
-            const videoPlayer = document.getElementById('videoPlayer');
-            const setdlLink = document.getElementById('dlLink');
-
-            // Get the 'id' parameter from the URL
             const urlParams = new URLSearchParams(window.location.search);
             const id = urlParams.get("id") || 'uA48hktj0aE_Uc';
+          
+            var modal = document.getElementById("my_modal");
+            modal.showModal();
+          
+            const player = Plyr.setup('.player', { controls });
+            const videoPlayer = document.getElementById('videoPlayer');
 
-            // Fetch data from the API
+            const setdlLink = document.getElementById('dlLink');
+            
+
             fetch(`https://f2lk.me/api/f/${id}`)
                 .then(response => response.json())
                 .then(data => {
-                    // Update the HTML elements with the API response data
-                    document.title = `Streaming ${decodeURIComponent(data.file_name)} || "Big Buck Bunny"`;
-                    document.getElementById('content').textContent = decodeURIComponent(data.file_name) || "Big Buck Bunny";
-                    document.getElementById('fileName').textContent = decodeURIComponent(data.file_name) || "Big Buck Bunny";
-                    document.getElementById('fileSize').textContent = formatFileSize(data.file_size) || "Not Available";
-                    document.getElementById('createdon').textContent = data.created_on || "Not Available";
+                    document.title = `Streaming ${decodeURIComponent(cleanFilename(data.file_name))}`;
+                    document.getElementById('fileName').textContent = decodeURIComponent(cleanFilename(data.file_name));
+                    document.getElementById('fileName1').textContent = decodeURIComponent(cleanFilename(data.file_name));
+                    document.getElementById('fileName2').textContent = decodeURIComponent(cleanFilename(data.file_name));
+                    document.getElementById('fileSize').textContent = formatFileSize(data.file_size);
+                    document.getElementById('uploadedOn').textContent = formatDate(data.created_on);
 
-                    // Construct the video link based on 'id'
                     const videoLink = `https://f2lk.me/${id}` ;
                     videoPlayer.src = videoLink;
                     setdlLink.href = videoLink;
@@ -87,7 +185,6 @@
                     console.error('Error fetching data from API:', error);
                 });
 
-            // Function to format file size
             function formatFileSize(size) {
                 const units = ['B', 'KB', 'MB', 'GB', 'TB'];
                 let i = 0;
@@ -98,9 +195,42 @@
                 return size.toFixed(2) + ' ' + units[i];
             }
 
-            const cleanURL = `/tools/player/`;
-            window.history.replaceState({}, '', cleanURL);
+	        function formatDate(dateString) {
+    	    	const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+            	return new Date(dateString).toLocaleDateString('en-US', options);
+	        }
+
+	        function cleanFilename(originalFilename) {
+    		    const clean = decodeURIComponent(originalFilename)
+        	        .replace(/\+/g, ' ')        // Replace plus sign (+) with space
+        	        //.replace(/[_-]/g, ' ')      // Replace underscores and hyphens with space
+        	        .replace(/\.\s+/g, '.')     // Remove extra spaces before file extension
+        	        //.replace(/[^a-zA-Z0-9. ]/g, ''); // Remove any remaining special characters
+    		    return clean;
+	        }
+
+            const copyButton = document.getElementById('copyLink');
+                    
+            copyButton.addEventListener('click', () => {
+                const link = videoPlayer.src;
+                const textArea = document.createElement('textarea');
+                textArea.value = link;
+                document.body.appendChild(textArea);
+            
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                copyButton.textContent = '✅ Copied';
+                
+                setTimeout(() => {
+                  copyButton.textContent = '🔗 Copy Link';
+                }, 3000);
+            });
+
+          
         });
     </script>
+        
 </body>
 </html>
