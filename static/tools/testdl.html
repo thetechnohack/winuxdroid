@@ -187,42 +187,35 @@
                     downloadButton.addEventListener('click', downloadFileWithCountdown);
 
 
-                    function copyLinkWithCountdown() {
-                        const copyButton = document.getElementById('copyLink');
-                        copyButton.disabled = true;
-                    
-                        let countdown = 10;
+            	    const copyLinkButton = document.getElementById('copyLink');
+		    		copyLinkButton.addEventListener('click', function () {
+                		copyLinkButton.disabled = true;
 
-			const testArea = document.createElement('textarea');
-			const textToCopy = fileLink;
-                    
-                        const intervalId = setInterval(function () {
-                            if (countdown === 0) {
-                                clearInterval(intervalId);
-                                copyButton.disabled = false;
-                                
-				textArea.value = textToCopy;
-				document.body.appendChild(textArea);
+                		let countdown = 10;
+                		const countdownInterval = setInterval(function () {
+                    		if (countdown > 0) {
+                    			copyLinkButton.textContent = `Wait ${countdown} sec`;
+                        		countdown--;
+                    		} else {
+                            	clearInterval(countdownInterval);
+                            	copyTextToClipboard(fileLink);
+                            	copyLinkButton.textContent = "Copied!";
+                            	setTimeout(function () {
+                                	copyLinkButton.textContent = "Copy Link";
+                                	copyLinkButton.disabled = false;
+                    			}, 2000);
+                        	}
+                    	}, 1000);
+                    });
 
-				textArea.select();
-				document.execCommand('copy');
-				document.body.removeChild(textArea);
-
-				copyButton.textContent = '✅ Copied';
-
-				setTimeout(() => {
-				  copyButton.textContent = '🔗 Copy Link';
-				}, 3000);
-      
-                            } else {
-                                copyButton.textContent = `Wait ${countdown} sec`;
-                                countdown--;
-                            }
-                        }, 1000);
-                    }
-                    
-                    const copyButton = document.getElementById('copyLink');
-                    copyButton.addEventListener('click', copyLinkWithCountdown);
+            function copyTextToClipboard(text) {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+            }
 
                 })
                 .catch(error => {
