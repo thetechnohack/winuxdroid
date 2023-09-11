@@ -199,14 +199,13 @@
 					        if (countdown > 0) {
 					            copyLinkButton.textContent = `Wait ${countdown} sec`;
 					            countdown--;
-					        } else {
-					            textarea.select();
-					            document.execCommand('copy');
-					            copyLinkButton.textContent = "Copied!";
-					            clearInterval(countdownInterval);
-								copyLinkButton.disabled = false;
 					        }
 					    }, 1000);
+						textarea.select();
+					    document.execCommand('copy');
+					    copyLinkButton.textContent = "Copied!";
+					    clearInterval(countdownInterval);
+						copyLinkButton.disabled = false;
 					});
 
 
