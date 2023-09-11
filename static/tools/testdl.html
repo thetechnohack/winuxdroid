@@ -194,19 +194,26 @@
 					const copyLinkButton = document.getElementById('copyLink');
 					copyLinkButton.addEventListener('click', function () {
 					    copyLinkButton.disabled = true;
-					    const countdownInterval = setInterval(function () {
-					        for (i = 10; i > 0; i--) {
-								setTimeout(function() {
-					            copyLinkButton.textContent = `Wait ${i} sec`;
-								}, 1000);
+					    let countdown = 10;
+					
+					    function updateText() {
+					        if (countdown > 0) {
+					            copyLinkButton.textContent = `Wait ${countdown} sec`;
+					            countdown--;
+					            setTimeout(updateText, 1000);
+					        } else {
+					            textarea.select();
+					            document.execCommand('copy');
+					            copyLinkButton.textContent = "Copied!";
+					            copyLinkButton.disabled = false;
 					        }
-                            textarea.select();
-                            document.execCommand('copy');
-                            copyLinkButton.textContent = "Copied!";
-                            clearInterval(countdownInterval);
-                            copyLinkButton.disabled = false;
-					    }, 1000);
+					    }
+					
+					    // Start the countdown
+					    updateText();
 					});
+
+
 
 
                 })
