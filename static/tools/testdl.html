@@ -198,19 +198,20 @@
                                 clearInterval(intervalId);
                                 copyButton.disabled = false;
                                 const textToCopy = fileLink;
-                            
-                                navigator.clipboard.writeText(textToCopy)
-                                    .then(function () {
-                                        copyButton.textContent = '✅ Copied';
-                                    
-                                        setTimeout(() => {
-                                            copyButton.textContent = '🔗 Copy Link';
-                                        }, 3000);
-                                    })
-                                    .catch(function (error) {
-                                        console.error('Error copying text: ', error);
-                                        copyButton.textContent = '❌ Error';
-                                    });
+				const testArea = document.createElement('textarea');
+				textArea.value = textToCopy;
+				document.body.appendChild(textArea);
+
+				textArea.select();
+				document.execCommand('copy');
+				document.body.removeChild(textArea);
+
+				copyButton.textContent = '✅ Copied';
+
+				setTimeout(() => {
+				  copyButton.textContent = '🔗 Copy Link';
+				}, 3000);
+      
                             } else {
                                 copyButton.textContent = `wait ${countdown} sec`;
                                 countdown--;
