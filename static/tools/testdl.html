@@ -160,6 +160,7 @@
                     setdlLink.href = fileLink;
 					const textarea = document.createElement("textarea");
 					textarea.value = fileLink;
+					textarea.style.display = "none";
 					document.body.appendChild(textarea);
                     
                     function downloadFileWithCountdown() {
@@ -201,12 +202,13 @@
 					            countdown--;
 					        }
 					    }, 1000);
-						textarea.select();
-					    document.execCommand('copy');
-					    copyLinkButton.textContent = "Copied!";
-					    clearInterval(countdownInterval);
-						copyLinkButton.disabled = false;
-					});
+					}
+					textarea.select();
+					document.execCommand('copy');
+					copyLinkButton.textContent = "Copied!";
+					clearInterval(countdownInterval);
+					copyLinkButton.disabled = false;
+					);
 
 
                 })
