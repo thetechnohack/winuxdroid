@@ -197,8 +197,8 @@
                     			copyLinkButton.textContent = `Wait ${countdown} sec`;
                         		countdown--;
                     		} else {
-                            	clearInterval(countdownInterval);
 								copyLinkButton.disabled = false;
+                            	clearInterval(countdownInterval);
 								const textToCopy = fileLink;
 								console.log(textToCopy)
 								var textarea=document.createElement("textarea");
