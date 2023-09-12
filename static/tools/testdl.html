@@ -158,10 +158,6 @@
 
                     const fileLink = `https://f2lk.me/${id}`;
                     setdlLink.href = fileLink;
-					const textarea = document.createElement("textarea");
-					textarea.value = fileLink;
-					textarea.style.display = "none";
-					document.body.appendChild(textarea);
                     
                     function downloadFileWithCountdown() {
                         const downloadButton = document.getElementById("dlLink");
@@ -191,32 +187,38 @@
                     downloadButton.addEventListener('click', downloadFileWithCountdown);
 
 
-					const copyLinkButton = document.getElementById('copyLink');
-					copyLinkButton.addEventListener('click', function () {
-					    copyLinkButton.disabled = true;
-					    let countdown = 10;
-					
-					    function updateText() {
-					        if (countdown > 0) {
-					            copyLinkButton.textContent = `Wait ${countdown} sec`;
-					            countdown--;
-					            setTimeout(updateText, 1000);
-					        } else {
-					            textarea.select();
-					            document.execCommand('copy');
-					            copyLinkButton.textContent = "Copied!";
-					            copyLinkButton.disabled = false;
-					        }
-					    }
-					
-					    // Start the countdown
-					    updateText();
-					});
+                    function copyFileWithCountdown() {
+                        const copyLinkButton = document.getElementById("copyLink");
+                        copyLinkButton.disabled = true;
 
+                        let countdown = 10;
+
+                        const intervalId = setInterval(function () {
+                            copyLinkButton.textContent = `Wait ${countdown} sec`;
+                            countdown--;
+
+                            if (countdown < 0) {
+                                clearInterval(intervalId);
+                                const textToCopy = fileLink;
+                                const textArea = document.createElement("textarea");
+                                textArea.value = textToCopy;
+                                document.body.appendChild(textArea);
+                                textArea.select();
+                                document.execCommand('copy');
+                                document.body.removeChild(textArea);
+                                copyLinkButton.textContent = 'Copied';
+                                copyLinkButton.disabled = false;
+                            }
+                        }, 1000);
+                    }
+
+                    const copyLinkButton = document.getElementById("copyLink");
+                    copyLinkButton.addEventListener('click', copyFileWithCountdown);
 
 
 
                 })
+
                 .catch(error => {
                     console.error('Error fetching data from API:', error);
                 });
