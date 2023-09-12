@@ -201,17 +201,23 @@
                                 clearInterval(intervalId);
                                 copyLinkButton.disabled = false;
                                 copyLinkButton.textContent = 'Click Now';
-
-                                const textToCopy = fileLink;
-                                const textArea = document.createElement("textarea");
-                                textArea.value = textToCopy;
-                                document.body.appendChild(textArea);
-                                textArea.select();
-                                document.execCommand('copy');
-                                document.body.removeChild(textArea);
-                                copyLinkButton.textContent = 'Copied';
                             }
                         }, 1000);
+
+                        if (copyLinkButton.textContent === 'Click Now') {
+                            const textToCopy = fileLink;
+                            const textArea = document.createElement("textarea");
+                            textArea.value = textToCopy;
+                            document.body.appendChild(textArea);
+                            textArea.select();
+                            document.execCommand('copy');
+                            document.body.removeChild(textArea);
+                            copyLinkButton.textContent = 'Copied';
+                        
+                            setTimeout(function () {
+                                copyLinkButton.textContent = 'Copy Link';
+                            }, 10000);
+                        }
                     }
 
                     const copyLinkButton = document.getElementById("copyLink");
