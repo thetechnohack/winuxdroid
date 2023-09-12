@@ -165,10 +165,7 @@
           
             const player = Plyr.setup('.player', { controls });
             const videoPlayer = document.getElementById('videoPlayer');
-
-            const setdlLink = document.getElementById('dlLink');
             
-
             fetch(`https://f2lk.me/api/f/${id}`)
                 .then(response => response.json())
                 .then(data => {
@@ -181,7 +178,7 @@
 
                     const videoLink = `https://f2lk.me/${id}` ;
                     videoPlayer.src = videoLink;
-                    setdlLink.href = videoLink;
+                    const fileLink = videoLink;
 
                     function downloadFileWithCountdown() {
                         const downloadButton = document.getElementById("dlLink");
