@@ -153,7 +153,7 @@
             fetch(`https://f2lk.me/api/f/${id}`)
                 .then(response => response.json())
                 .then(data => {
-                    document.title = `Streaming ${decodeURIComponent(cleanFilename(data.file_name))}`;
+                    document.title = `Download ${decodeURIComponent(cleanFilename(data.file_name))}`;
                     document.getElementById('fileName').textContent = decodeURIComponent(cleanFilename(data.file_name));
                     document.getElementById('fileName1').textContent = decodeURIComponent(cleanFilename(data.file_name));
                     document.getElementById('fileName2').textContent = decodeURIComponent(cleanFilename(data.file_name));
