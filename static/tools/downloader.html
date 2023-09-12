@@ -14,7 +14,7 @@
       <button class="absolute right-2 top-2 font-extrabold outline-none text-green-700">✕</button>
     </form>
     <a href="https://bit.ly/3qYDu1f" target="_blank">
-        <img class="w-[240px] h-[240px]" src="https://telegra.ph/file/550599181150f3e6e7126.jpg" alt="contest_banner">
+        <img class="w-[240px] h-[240px]" src="https://res.cloudinary.com/morphy/image/upload/v1694526770/550599181150f3e6e7126_atybvv.jpg" alt="contest_banner">
     </a>
     <h3 class="font-bold text-xl text-[#02f022] sm:text-2xl my-2">FREE GOODIES 🔥</h3>
     <ul>
@@ -36,7 +36,7 @@
 
                 <div class="max-w-sm rounded-lg bg-[#000000] dark:bg-[#000000]">
                     <a href="https://bit.ly/3qYDu1f">
-                        <img class="rounded-t-lg" src="https://telegra.ph/file/550599181150f3e6e7126.jpg" alt="ads_banner" />
+                        <img class="rounded-t-lg" src="https://res.cloudinary.com/morphy/image/upload/v1694526770/550599181150f3e6e7126_atybvv.jpg" alt="ads_banner" />
                     </a>
                     <div class="p-5">
                         <a href="https://bit.ly/3qYDu1f">
@@ -120,7 +120,7 @@
 
                 <div class="flex justify-center">
                     <button id="dlLink" class="h-10 px-5 m-2 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">📂 Download</button>
-                    <!-- <button id="copyLink" class="h-10 px-5 m-2 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">🔗 Copy Link</button> -->
+                    <button id="copyLink" class="h-10 px-5 m-2 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">🔗 Copy Link</button>
                 </div>
 
             </div>
@@ -220,6 +220,24 @@
         	        //.replace(/[^a-zA-Z0-9. ]/g, ''); // Remove any remaining special characters
     		    return clean;
 	        }
+
+			const copyButton = document.getElementById('copyLink');         
+            copyButton.addEventListener('click', () => {
+                const link = window.location.href;
+                const textArea = document.createElement('textarea');
+                textArea.value = link;
+                document.body.appendChild(textArea);
+            
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                copyButton.textContent = '✅ Copied';
+                
+                setTimeout(() => {
+                  copyButton.textContent = '🔗 Copy Link';
+                }, 5000);
+            });
           
         });
     </script>
