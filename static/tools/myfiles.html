@@ -1,0 +1,124 @@
+<!doctype html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage files</title>
+  <link rel="stylesheet" href="https://winuxdroid.com/tools/dist/output.css">
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css"/>
+</head>
+<body>
+    <div class="flex">
+
+        <div class="hidden md:w-1/4 md:block p-3 h-screen bg-[#282C35] dark:bg-zinc-900 overflow-auto no-scrollbar">
+            <h1 class="p-4 my-2 font-mono text-xl text-center sticky top-0 text-[#02f022] bg-[#000000] dark:bg-[#000000] rounded-lg">Events</h1>
+            <div class="flex-col space-y-3">
+
+                <div class="text-white font-extrabold text-center">Nothing here for now.</div>
+
+            </div>
+        </div>
+
+
+        <div class="mx-auto w-full md:w-1/2 h-screen bg-[#000000] dark:bg-black overflow-auto no-scrollbar">
+            <div class="mx-auto px-2 max-w-xl flex flex-col space-y-3">
+
+                <div class="p-5 flex justify-center items-center space-x-3">
+                    <svg role="img" fill="#26A5E4" width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Telegram</title><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.820 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                    <div class="text-xl font-bold text-white"><a href="tg://resolve?domain=FileToLinkReadyBot">FileToLinkReadyBot</a></div>
+                </div>
+
+                <div class="p-4 space-y-2 bg-[#121212] text-white rounded-2xl">
+                    <div class="flex text-white justify-evenly">
+                        <!-- <div class="text-xl">258048475</div> -->
+                        <!-- <div class="text-lg">180 Files Found</div> -->
+                        <div>Here are the files you sent to the bot. As of now you can not delete files but soon you will be able to do so.</div>
+                    </div>
+                </div>
+
+                <div id="fileList" class="p-4 space-y-2 bg-[#121212] text-white rounded-2xl"></div>
+
+            </div>
+        </div>
+
+        <div class="hidden md:w-1/4 md:block p-3 h-screen bg-[#282C35] dark:bg-zinc-900 overflow-auto no-scrollbar">
+            <h1 class="p-4 my-2 font-mono text-xl text-center sticky top-0 text-[#02f022] bg-[#000000] dark:bg-[#000000] rounded-lg">Latest on winuxdroid</h1>
+            <div class="flex-col space-y-3">
+
+                <div class="text-white font-extrabold text-center">Soon...🚀</div>
+
+            </div>
+        </div>
+        
+    
+    </div>
+
+    <script>
+        function getUrlParams() {
+          const urlParams = new URLSearchParams(window.location.search);
+          const token = urlParams.get('token');
+          const user = urlParams.get('user');
+          return { token, user };
+        }
+
+        function formatFileSize(size) {
+            const units = ['B', 'KB', 'MB', 'GB', 'TB'];
+            let i = 0;
+            while (size >= 1024 && i < units.length - 1) {
+                size /= 1024;
+                i++;
+            }
+            return size.toFixed(2) + ' ' + units[i];
+        }
+
+        function cleanFilename(originalFilename) {
+    	    const clean = decodeURIComponent(originalFilename)
+                .replace(/\+/g, ' ')        // Replace plus sign (+) with space
+                //.replace(/[_-]/g, ' ')      // Replace underscores and hyphens with space
+                .replace(/\.\s+/g, '.')     // Remove extra spaces before file extension
+                //.replace(/[^a-zA-Z0-9. ]/g, ''); // Remove any remaining special characters
+    	    return clean;
+	    }
+
+        function getFileExtension(fileName) {
+          return fileName.split('.').pop().toLowerCase();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+          const { token, user } = getUrlParams();
+          const apiUrl = `https://f2lk.me/api/myfiles?token=${token}&user=${user}`;
+        
+          fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+              const fileListDiv = document.getElementById('fileList');
+              fileListDiv.innerHTML = '';
+            
+              data.forEach(item => {
+                const customDiv = document.createElement('div');
+                customDiv.className = 'space-y-2 bg-[#0f0f0f] p-4 rounded-2xl overflow-hidden';
+
+                const fileExtension = getFileExtension(item.file_name);
+
+                // Determine the appropriate link based on the file extension
+                let link;
+                if (fileExtension.match(/^(mp4|mkv|mp3)$/i)) {
+                  link = `https://winuxdroid.com/tools/player?id=${item.file_id}`;
+                } else {
+                  link = `https://winuxdroid.com/tools/downloader?id=${item.file_id}`;
+                }
+            
+                customDiv.innerHTML = `
+                  <div class="font-extrabold font-mono text-[#02f022]">${cleanFilename(item.file_name)}</div>
+                  <div class="text-white">${formatFileSize(item.file_size)}</div>
+                  <a href="https:${link}">Click to Stream/Download</a>
+                `;
+            
+                fileListDiv.appendChild(customDiv);
+              });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+        });
+    </script>
+        
+</body>
+</html>
