@@ -6,9 +6,9 @@ ShowBreadCrumbs: false
 hideFooter: true
 ---
 
-## Privacy Policy for [WinuxDroid]
+## Privacy Policy for WinuxDroid
 
-At [WinuxDroid], we value your privacy. This Privacy Policy outlines our practices regarding the collection and use of information on our website.
+At WinuxDroid, we value your privacy. This Privacy Policy outlines our practices regarding the collection and use of information on our website.
 
 ### Information We Collect
 
@@ -30,6 +30,8 @@ You can choose to disable cookies through your web browser settings. This may af
 
 We may update this Privacy Policy as needed. Any changes will be posted on this page.
 
-If you have any questions or concerns about our Privacy Policy, please [contact us](mailto: support@winuxdroid.com).
+### Contact Us
 
-This Privacy Policy was last updated on [27/09/2023].
+If you have any questions or concerns about our Privacy Policy, please [contact us](mailto:support@winuxdroid.com).
+
+This Privacy Policy was last updated on 27/09/2023.
