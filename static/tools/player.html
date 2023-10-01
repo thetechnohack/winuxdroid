@@ -28,7 +28,9 @@
                     <div class="text-xl font-bold text-white"><a href="tg://resolve?domain=FileToLinkReadyBot">FileToLinkReadyBot</a></div>
                 </div>
 
-                <video class="player rounded-2xl bg-[#121212] overflow-hidden" src="" id="videoPlayer"></video>
+                <video class="player rounded-2xl bg-[#121212] overflow-hidden" id="videoPlayer">
+			<source src="" type="video/mp4">
+		</video>
 
                 <div class="p-4 bg-[#121212] text-white rounded-2xl">
                     <div class="relative flex overflow-x-hidden">
@@ -104,6 +106,7 @@
           
             const player = Plyr.setup('.player', { controls });
             const videoPlayer = document.getElementById('videoPlayer');
+			const sourceElement = videoPlayer.querySelector('source');
             
             fetch(`https://f2lk.me/api/f/${id}`)
                 .then(response => response.json())
@@ -116,7 +119,8 @@
                     document.getElementById('uploadedOn').textContent = formatDate(data.created_on);
 
                     const videoLink = `https://f2lk.me/${id}` ;
-                    videoPlayer.src = videoLink;
+                    // videoPlayer.src = videoLink;
+					sourceElement.src = videoLink;
                     const fileLink = videoLink;
 
                     function downloadFileWithCountdown() {
