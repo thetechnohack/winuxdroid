@@ -103,10 +103,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const id = urlParams.get("id") || '-3Z6vr7ZEuoT24';
-          
-            const player = Plyr.setup('.player', { controls });
-            const videoPlayer = document.getElementById('videoPlayer');
-			const sourceElement = videoPlayer.querySelector('source');
             
             fetch(`https://f2lk.me/api/f/${id}`)
                 .then(response => response.json())
@@ -118,10 +114,19 @@
                     document.getElementById('fileSize').textContent = formatFileSize(data.file_size);
                     document.getElementById('uploadedOn').textContent = formatDate(data.created_on);
 
-                    const videoLink = `https://f2lk.me/${id}` ;
+					const videoPlayer = document.getElementById('videoPlayer');
+					const sourceElement = videoPlayer.querySelector('source');
+					const videoLink = `https://f2lk.me/${id}` ;
                     // videoPlayer.src = videoLink;
 					sourceElement.src = videoLink;
                     const fileLink = videoLink;
+					const player = Plyr.setup('.player', { 
+						controls,
+						sources:[{
+							src: videoLink,
+							type: 'video/mp4'
+						}]
+					});
 
                     function downloadFileWithCountdown() {
                         const downloadButton = document.getElementById("dlLink");
